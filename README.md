@@ -29,6 +29,9 @@ Ahmed Shalaby - [GitHub](https://github.com/Madiocre) / [Twitter](https://twitte
 - modern enough to satisfy our dev needs
 - mongodb
 
+## DB
+![Database Schema](res/DB%20Schema.png)
+
 # Installation / Running locally
 - git clone
 - make sure u have node 18 and npm installed
