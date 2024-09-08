@@ -1,3 +1,7 @@
 import { MongoClient } from 'mongodb';
 
-const uri: string = process.env.MONGODB_URI as string; // Ensuring the environment variable is treated as a string
+const URI: string = process.env.MONGO_URI as string;
+
+console.log(URI)
+
+export default URI;
