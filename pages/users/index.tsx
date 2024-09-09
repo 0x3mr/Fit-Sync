@@ -19,7 +19,7 @@ export default function UsersPage() {
       <ul>
         {users.map(user => (
           <li key={user._id}>
-            {user.firstName} {user.lastName}
+            {user.F_name} {user.L_name}
           </li>
         ))}
       </ul>

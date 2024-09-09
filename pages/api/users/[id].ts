@@ -1,6 +1,5 @@
-// app/api/users/[id].ts
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getUserById, updateUser, deleteUser } from '../../models/User';
+import { getUserById, updateUser, deleteUser } from '@/app/models/User';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { id } = req.query;
