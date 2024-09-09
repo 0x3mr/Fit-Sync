@@ -1,12 +1,8 @@
-// app/models/User.ts
-import { MongoClient, ObjectId } from 'mongodb';
+import { ObjectId } from 'mongodb';
+import db from '../lib/manga';
 
-const uri = process.env.MONGO_URI as string;
-const client = new MongoClient(uri);
-const dbName = 'fitsync';
+
 const collectionName = 'users';
-// define db once
-const db = client.db(dbName);
 const users = db.collection(collectionName);
 
 interface User {
