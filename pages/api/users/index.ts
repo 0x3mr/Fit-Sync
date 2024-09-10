@@ -3,7 +3,7 @@ import { getAllUsers, isAdmin } from '@/app/models/User';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
-    const { err, state } = isAdmin(req);
+    const { err, state } = await isAdmin(req);
     if (err){
       return res.status(400).json({ err });
     }

@@ -39,6 +39,7 @@ export async function createUser(userData: User) {
   if (exist) {
     return { err: "Email Already Registered, Please login." };
   }
+  userData.role = 'user';
   await users.insertOne(userData);
   return { user: userData.email };
 }
@@ -72,8 +73,8 @@ export async function isAdmin(req: NextApiRequest) {
   return { state: exist.role === 'admin' };
 }
 
-export async function isValidSession(req: NextRequest) {
-  const cookies = cookie.parse(req.headers.get('cookie') || '');
+export async function isValidSession(req: NextApiRequest) {
+  const cookies = cookie.parse(req.headers.cookie || '');
   const sessionID = cookies.sessionID;
   if (!sessionID){
     return 1;
