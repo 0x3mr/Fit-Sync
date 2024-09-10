@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!sessionID){
       return res.status(401).json({ error: 'Unauthorized' });
     }
-    const { err, state } = await logoutUser(sessionID);
+    const { state } = await logoutUser(sessionID);
     return res.status(200).json({ state });
   } else {
     return res.status(405).end(`Method ${req.method} Not Allowed`);

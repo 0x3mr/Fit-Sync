@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
-import cookie from 'cookie';
-import { isValidSession } from './app/models/User';
+// import { isValidSession } from './app/models/User';
 
 export async function middleware(req: NextRequest) {
   // const code = await isValidSession(req);
