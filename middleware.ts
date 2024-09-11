@@ -3,10 +3,13 @@ import { NextRequest } from 'next/server';
 
 export async function middleware(req: NextRequest) {
   // List of paths to exclude from authentication
-  const { pathname } = req.nextUrl;
-  const freeRoutes = ['/api/login', '/api/status', '/api/session'];
 
-  if (freeRoutes.includes(pathname)) {
+  const { pathname } = req.nextUrl;
+  const freeRoutes = ['/api/login', '/api/status', '/api/session', '/login', '/register', '/'];
+
+  if (pathname.startsWith('/_next/static/') ||
+    pathname.startsWith('/public/') ||
+    freeRoutes.includes(pathname)) {
     return NextResponse.next();
   }
 
