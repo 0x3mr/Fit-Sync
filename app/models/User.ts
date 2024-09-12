@@ -44,6 +44,19 @@ export async function getUserBySessionId(sessionID: string) {
   return { user };
 }
 
+export async function getUserByReq(req: NextApiRequest) {
+  const cookies = cookie.parse(req.headers.cookie || "");
+  const sessionID = cookies.sessionID;
+  const { user, err } = await getUserBySessionId(sessionID);
+  if (err) {
+    return { err };
+  }
+  if (!user) {
+    return { err: "User not found." };
+  }
+  return { user };
+}
+
 export async function createUser(userData: User) {
   const exist = await users.findOne({ email: userData.email });
   if (exist) {
