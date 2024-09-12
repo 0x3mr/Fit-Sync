@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { loginUser, createUser, logoutUser, isValidSession } from '@/app/models/User';
+import { loginUser, logoutUser, isValidSession } from '@/app/models/User';
 import cookie from 'cookie';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

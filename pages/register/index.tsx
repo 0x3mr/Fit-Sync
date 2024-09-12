@@ -1,5 +1,5 @@
 // app/pages/users/index.tsx
-import React, { FC, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { FaUser, FaLock, FaArrowLeft } from "react-icons/fa";
 import Logo from '@/app/assets/Images/Logo.png';
 import Image from 'next/image';

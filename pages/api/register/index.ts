@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { loginUser, createUser, logoutUser } from '@/app/models/User';
-import cookie from 'cookie';
+import { createUser } from '@/app/models/User';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {

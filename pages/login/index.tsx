@@ -1,5 +1,5 @@
 // app/pages/users/index.tsx
-import React, { FC, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { FaUser, FaLock, FaArrowLeft } from "react-icons/fa";
 import Logo from '@/app/assets/Images/Logo.png';
 import Image from 'next/image';
@@ -70,7 +70,7 @@ export default function LoginPage() {
                     </div>
                     <button type="submit">Login</button>
                     <div className="register-link">
-                        <p>Don't have an account? <a href="/register">Register</a></p>
+                        <p>Don\'t have an account? <a href="/register">Register</a></p>
                     </div>
                 </form>
             </div>

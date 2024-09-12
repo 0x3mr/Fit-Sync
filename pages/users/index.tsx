@@ -1,28 +1,32 @@
-// app/pages/users/index.tsx
 import { useEffect, useState } from 'react';
 
+// Define the User type
+interface User {
+  _id: string;
+  F_name: string;
+  L_name: string;
+}
+
 export default function UsersPage() {
-  const [users, setUsers] = useState([]);
+  // Use the User type for the state
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    async function fetchUsers() {
+    async function fetchData() {
       const res = await fetch('/api/users');
       const data = await res.json();
       setUsers(data);
     }
-    fetchUsers();
+    fetchData();
   }, []);
 
   return (
-    <div>
-      <h1>User List</h1>
-      <ul>
-        {users.map(user => (
-          <li key={user._id}>
-            {user.F_name} {user.L_name}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {users.map(user => (
+        <li key={user._id}>
+          {user.F_name} {user.L_name}
+        </li>
+      ))}
+    </ul>
   );
 }
