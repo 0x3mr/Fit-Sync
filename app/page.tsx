@@ -13,10 +13,9 @@ export default function Home() {
           alt="Logo"
           className="logo w-[60%] mt-20 md:mt-0 md:w-full"
           priority
+          src={""}
         />
-        <p>
-          your name is {name}
-        </p>
+        <p>your name is {name}</p>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
