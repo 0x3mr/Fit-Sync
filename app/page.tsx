@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Logo from '@/app/assets/Images/Logo.png';
 
 export default function Home() {
   const name = "meeee";
@@ -8,9 +9,9 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src={Logo}
+          alt="Logo"
+          className="logo w-[60%] mt-20 md:mt-0 md:w-full"
           priority
         />
         <p>
