@@ -5,7 +5,7 @@ export async function middleware(req: NextRequest) {
   // List of paths to exclude from authentication
 
   const { pathname } = req.nextUrl;
-  const freeRoutes = ['/api/login', '/api/status', '/api/session', '/login', '/register', '/'];
+  const freeRoutes = ['/api/login', '/api/register', '/api/status', '/api/session', '/login', '/register', '/'];
 
   if (pathname.startsWith('/_next/static/') ||
     pathname.startsWith('/public/') ||
