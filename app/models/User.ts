@@ -8,7 +8,6 @@ const users = db.collection("users");
 const sessions = db.collection("sessions");
 
 interface User {
-  _id?: ObjectId; // Optional for new users
   F_name: string;
   L_name: string;
   email: string;
