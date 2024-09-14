@@ -9,6 +9,7 @@ export async function middleware(req: NextRequest) {
 
   if (pathname.startsWith('/_next/static/') ||
     pathname.startsWith('/public/') ||
+    pathname.startsWith('/assets/') ||
     freeRoutes.includes(pathname)) {
     return NextResponse.next();
   }

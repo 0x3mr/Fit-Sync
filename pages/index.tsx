@@ -3,12 +3,20 @@ import Logo from '@/app/assets/Images/Logo.png';
 import { GetServerSideProps } from "next";
 import { getUserBySessionId } from "../app/models/User";
 import '../app/globals.css';
+import '../app/assets/styles/video.css';
 
 export default function Home({ name }: { name: string }) {
   console.log(name);
   return (
-    <div>
-      <header>OEPRATIONAL</header>
+    <div className="videoBackground">
+      <video autoPlay loop muted className="video">
+        <source src='/assets/Videos/BlackFading.mp4' type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="content">
+        {/* Add your content here */}
+        <h1>Your Page Content</h1>
+      </div>
     </div>
   );
 }
