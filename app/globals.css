@@ -4,7 +4,6 @@ AMR DON'T REMOVE THESE
 AMR DON'T REMOVE THESE 
 AMR DON'T REMOVE THESE  */
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -33,6 +32,26 @@ body {
   }
 }
 
+.page-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)),
+    url("/app/assets/Images/Gym-Overlay.png");
+}
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 1;
+  opacity: 0.6;
+}
+@font-face {
+  font-family: "Aspire";
+  src: url("/assets/fonts/aspire-sc-black-oblique.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 .wrapper {
   width: 420px;
   background: transparent; /* Remove black box background */
@@ -61,7 +80,11 @@ body {
 .input-box {
   position: relative;
   width: 100%;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.35)); /* Gradient background */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.35)
+  ); /* Gradient background */
   border: none;
   border-radius: 40px;
   font-size: 16px;

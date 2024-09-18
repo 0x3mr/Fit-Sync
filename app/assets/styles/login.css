@@ -1,0 +1,120 @@
+/* Custom styles specifically for the LoginPage */
+
+.login-logo {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 380px;
+  }
+  
+  .login-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 600px; /* Adjust the form width */
+    margin: 0 auto;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 250px;
+  }
+  
+  .login-form {
+    background: transparent;
+    border-radius: 10px;
+    padding: 25px 40px;
+    color: white;
+    text-align: center;
+  }
+  
+  .login-heading {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+  
+  .login-input-box {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .login-input-box input {
+    width: 100%;
+    padding: 15px 45px 15px 20px;
+    border: none;
+    border-radius: 40px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.35));
+    color: white;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .login-input-box input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .login-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: white;
+  }
+  
+  .login-submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: white;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  .login-submit-btn:hover {
+    background: #f1f1f1;
+    color: rgb(30, 142, 255);
+  }
+  
+  .login-link {
+    font-size: 14.5px;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .login-link a {
+    color: rgb(30, 142, 255);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  
+  .login-back-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .back-icon {
+    margin-right: 8px;
+    font-size: 18px;
+  }
+  
+  .login-back-button:hover {
+    text-decoration: none;
+  }
+  
