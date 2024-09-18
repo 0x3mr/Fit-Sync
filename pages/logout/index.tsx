@@ -1,24 +1,22 @@
-import Image from "next/image";
-import Logo from '@/app/assets/Images/Logo.png';
-import { GetServerSideProps } from "next";
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { GetServerSideProps } from 'next';
 import { logoutUser } from "@/app/models/User";
 import '@/app/globals.css';
 
 export default function Home({ state }: { state: string }) {
   console.log(state);
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          src={Logo}
-          alt="Logo"
-          className="logo w-[60%] mt-20 md:mt-0 md:w-full"
-          priority
-        />
-        <p>you are logged out and {state}</p>
-      </main>
-    </div>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    const redirect = async () => {
+      router.push('/');
+    };
+
+    redirect();
+  }, [router]);
+
+  return null; // Optionally, you can return a loading message or spinner while redirecting
 }
 
 

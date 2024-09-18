@@ -1,58 +1,192 @@
-import Image from "next/image";
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { FaUser, FaChevronDown, FaSignOutAlt, FaDumbbell, FaFire, FaBolt } from 'react-icons/fa';
+import { LuLayoutDashboard } from "react-icons/lu";
+import { MdManageAccounts } from "react-icons/md";
 import Logo from '@/app/assets/Images/Logo.png';
-import { GetServerSideProps } from "next";
-import { getUserBySessionId } from "../app/models/User";
-import '../app/globals.css';
+import GymOverlay from '@/app/assets/Images/Gym-Overlay.png';
+import { GetServerSideProps } from 'next';
+import { getUserBySessionId } from '../app/models/User';
+import '../pages/landing/index.css';
 import '../app/assets/styles/video.css';
 
-export default function Home({ name }: { name: string }) {
-  console.log(name);
-  return (
-    <div className="videoBackground">
-      <video autoPlay loop muted className="video">
-        <source src='/assets/Videos/BlackFading.mp4' type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          src={Logo}
-          alt="Logo"
-          className="logo w-[60%] mt-20 md:mt-0 md:w-full"
-          priority
-        />
-        <p>your name is {name}</p>
-      </main>
+  export default function Home({ name }: { name: string }) {
+    const isLoggedIn = name !== 'Guest';
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [showDropdown, setShowDropdown] = useState(false);
+
+    const handleLoginRedirect = () => {
+      window.location.href = '/login'; // Redirect to relative /login page
+    };
+
+    const handleRegisterRedirect = (e: React.MouseEvent) => {
+      e.stopPropagation(); // Prevent the login button's click event from firing
+      window.location.href = '/register';
+    };
+
+    const handleSignOut = () => {
+      window.location.href = '/logout'; // Redirect to logout page
+    };
+  
+    const toggleDropdown = () => {
+      setShowDropdown(!showDropdown);
+    };
+
+    useEffect(() => {
+      const video = document.querySelector('video');
+      if (video) {
+        video.playbackRate = 1.5;
+      }
+    }, []);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 300) { // You can adjust this threshold
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    return (
+      <div className="gym-landing">
+        <video autoPlay loop muted className="background-video">
+          <source src="/assets/Videos/BlackFading.mp4" type="video/mp4" />
+        </video>
+
+        <div className="overlay-image-container">
+          <Image 
+            src={GymOverlay}
+            alt="Gym Overlay"
+            fill
+            style={{ objectFit: 'cover' }}
+            priority
+          />
+        </div>
+
+        <div className={`logo-container ${isScrolled ? 'scrolled' : ''}`}>
+          <Image 
+            src={Logo} 
+            alt="Logo" 
+            priority
+          />
+        </div>
+
+        <div className='title'>
+          <h1>
+            KEEP<br/>TURNING<br/>ON THE HEAT
+          </h1>
+        </div>
+
+        <div className="login-container">
+          {name !== 'Guest' ? (
+            <div 
+              className="welcome-button-container" 
+              onMouseEnter={() => setShowDropdown(true)} 
+              onMouseLeave={() => setShowDropdown(false)}
+            >
+              <div className="welcome-button">
+                <FaUser size={24} color="red" />
+                <span>{name}</span>
+                <FaChevronDown size={24} color="red" />
+              </div>
+              {showDropdown && (
+                <div className="dropdown-menu">
+                  <div className="dropdown-item"><LuLayoutDashboard size={20} color="red" className='icon' />  Dashboard</div>
+                  <div className="dropdown-item"><MdManageAccounts size={20} color="red" className='icon' />  Settings  </div>
+                  <div className="dropdown-item" onClick={handleSignOut}><FaSignOutAlt size={20} color="red" className='icon' />  Log out</div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <>
+              <button className="login-button" onClick={handleLoginRedirect}>
+                Login
+                <div className="sign-up" onClick={handleRegisterRedirect}>
+                  Sign up
+                </div>
+              </button>
+              <span>FIT<br />SYNC</span>
+            </>
+          )}
+        </div>
+
+        {/* Fixed text content */}
+        <div className="membership-showcase">
+          <h2 className="showcase-title">Choose Your Path to Fitness</h2>
+          <div className="membership-container">
+            <div className="membership-card">
+              <div className="membership-image">
+                <FaDumbbell size={80} color="#FF3636" />
+              </div>
+              <h3>Basic Burn</h3>
+              <p>Ignite your fitness journey with our entry-level membership.</p>
+              <ul>
+                <li>Access to main workout area</li>
+                <li>Basic equipment usage</li>
+                <li>2 group classes per month</li>
+              </ul>
+              <button className="know-more-btn">Discover More</button>
+            </div>
+            <div className="membership-card featured">
+              <div className="membership-image">
+                <FaFire size={80} color="#FF3636" />
+              </div>
+              <h3>Pro Power</h3>
+              <p>Elevate your training with our most popular plan.</p>
+              <ul>
+                <li>24/7 gym access</li>
+                <li>Full equipment access</li>
+                <li>Unlimited group classes</li>
+                <li>1 personal training session/month</li>
+              </ul>
+              <button className="know-more-btn">Unleash Pro Power</button>
+            </div>
+            <div className="membership-card">
+              <div className="membership-image">
+                <FaBolt size={80} color="#FF3636" />
+              </div>
+              <h3>Elite Inferno</h3>
+              <p>Experience the ultimate fitness journey with VIP perks.</p>
+              <ul>
+                <li>All Pro Power benefits</li>
+                <li>4 personal training sessions/month</li>
+                <li>Nutrition consultation</li>
+                <li>Exclusive access to Elite events</li>
+              </ul>
+              <button className="know-more-btn">Join the Elite</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="content">
-        {/* Add your content here */}
-        <h1>Your Page Content</h1>
-      </div>
-    </div>
-  );
-}
-
-
-export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  const cookies = req.headers.cookie;
-  let name = null;
-
-  if (cookies) {
-    const cookie = require("cookie"); // Use the cookie package to parse cookies
-    const parsedCookies = cookie.parse(cookies);
-    const sessionID = parsedCookies.sessionID;
-    console.log("SSSSSSS", sessionID);
-
-    if (sessionID) {
-      const user = await getUserBySessionId(sessionID);
-      console.log(user);
-      if (user.user) name = `${user.user.F_name} ${user.user.L_name}`;
-    }
+    );
   }
 
-  return {
-    props: {
-      name: name || "Guest", // Pass user name to the page component as a prop or default to 'Guest'
-    },
+  export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+    const cookies = req.headers.cookie;
+    let name = null;
+
+    if (cookies) {
+      const cookie = require('cookie');
+      const parsedCookies = cookie.parse(cookies);
+      const sessionID = parsedCookies.sessionID;
+      console.log('SSSSSSS', sessionID);
+
+      if (sessionID) {
+        const user = await getUserBySessionId(sessionID);
+        console.log(user);
+        // if (user.user) name = `${user.user.F_name} ${user.user.L_name}`;
+        if (user.user) name = `${user.user.F_name}`;
+      }
+    }
+
+    return {
+      props: {
+        name: name || 'Guest',
+      },
+    };
   };
-};

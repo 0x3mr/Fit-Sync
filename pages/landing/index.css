@@ -1,0 +1,320 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  background-color: black;
+}
+
+.gym-landing {
+  background-color: black;
+}
+
+.page-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)), url('/app/assets/Images/Gym-Overlay.png');
+}
+
+@font-face {
+  font-family: 'Aspire';
+  src: url('/assets/fonts/aspire-sc-black-oblique.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.title {
+  font-size: 2.2rem;
+  line-height: 75px;
+  letter-spacing: 1mm;
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(to top, rgba(255, 0, 0, 0.579), rgb(255, 81, 81));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  text-align: center;
+  padding: 50px;
+  font-family: 'Aspire', sans-serif;
+  text-shadow: 0px 0px 50px rgba(255, 27, 27, 0.734); /* Regular shadow */
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* Ensure the video covers the whole screen without distortion */
+  z-index: 1; /* Ensure the video stays behind content but still visible */
+  opacity: 0.60; /* Adjust opacity to match the desired look */
+}
+
+.logo-container {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease; /* Smooth transition */
+  position: relative; /* Normal position at the top */
+  top: 0;
+}
+
+.logo-container img {
+  position: relative;
+  z-index: 1;
+  height: auto;
+  transition: width 0.3s ease; /* Smooth transition */
+}
+
+.logo-container.scrolled {
+  position: fixed; /* Pinned to the top during scrolling */
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.logo-container.scrolled img {
+  width: 250px; /* Shrink the logo when scrolling */
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/Montserrat-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.login-container {
+  position: fixed;
+  top: 25px; /* Adjust this for desired top margin */
+  left: 25px; /* Adjust this for desired left margin */
+  z-index: 1001; /* Ensure it's on top of everything else */
+  display: flex;
+  align-items: center;
+}
+
+.login-container span {
+  color: rgb(255, 54, 54);
+  font-family: 'Aspire', sans-serif;
+  font-size: 1.35rem; /* Adjust the size accordingly */
+  line-height: 0.9; /* Tighter line spacing for FIT SYNC */
+  text-shadow: 0px 0px 50px rgba(255, 27, 27, 0.734); /* Same shadow as .title */
+  padding-left: 15px;
+}
+
+.login-button {
+  background-color: transparent;
+  border: 2px solid rgb(255, 54, 54); /* Same color as .title */
+  color: rgb(255, 54, 54); /* Same color as .title */
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 12px;
+  margin-left: 10px; /* Space between FIT SYNC and button */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  font-family: 'Montserrat', sans-serif;
+  position: relative; /* Position relative for hover effects */
+  width: 95px;
+}
+
+.login-button:hover {
+  background: linear-gradient(to top, #FF3636, rgb(190, 38, 0)); /* Red background on hover */
+  color: rgb(255, 255, 255); /* Change text color on hover */
+  border: 2px solid rgb(0, 0, 0); /* Border color change on hover */
+}
+
+/* The sliding 'Sign up' container */
+.sign-up {
+  display: none; /* Hidden initially */
+  position: absolute;
+  top: 100%; /* Position it below the button */
+  left: 0;
+  color: rgb(255, 54, 54);
+  padding: 10px 10px;
+  font-size: 16px;
+  border-radius: 12px 12px 12px 12px;
+  z-index: -1;
+  opacity: 0; /* Start with it being invisible */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  transform: translateY(-10px); /* Start off above */
+  white-space: nowrap; /* Prevents line breaks */
+  width: 70px;
+}
+
+.sign-up:hover {
+  color: rgb(255, 255, 255);
+}
+
+.login-button:hover .sign-up {
+  display: block; /* Show it when hovering on the button */
+  opacity: 1;
+  transform: translateY(0); /* Slide it down */
+}
+
+.welcome-button-container {
+  position: relative; /* To position dropdown menu */
+}
+
+.welcome-button {
+  background: transparent;
+  border: 2px solid rgb(255, 54, 54); /* Red border */
+  color: rgb(255, 54, 54); /* Red text */
+  padding: 10px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.welcome-button span {
+  font-family: 'Montserrat', sans-serif; /* Ensure font is applied to the username text */
+  padding-right: 10px;
+}
+
+.welcome-button:hover {
+  color: rgb(255, 255, 255); /* White text on hover */
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Position below the button */
+  left: 0;
+  border-radius: 12px;
+  width: max-content; /* Fit the width of the text */
+  z-index: 1000;
+}
+
+.dropdown-item {
+  margin-top: 20px;
+  padding-left: 15px;
+  font-size: 16px;
+  color: rgb(255, 255, 255); /* Red text */
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.icon {
+  padding-right: 5px;
+}
+
+.dropdown-item:hover {
+  color: rgb(255, 66, 66); /* White text on hover */
+}
+
+.fixed-text {
+  position: absolute;
+  color: white;
+  z-index: 100; /* Ensure it appears above other elements */
+}
+
+.content-container {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+}
+
+.membership-showcase {
+  padding: 100px 50px;
+  color: white;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  margin-top: 120px; /* Add margin to push it even further if needed */
+}
+
+.showcase-title {
+  font-family: 'Aspire', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 50px;
+  padding-bottom: 100px;
+  background: linear-gradient(to top, rgba(255, 0, 0, 0.579), rgb(255, 81, 81));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0px 0px 30px rgba(255, 27, 27, 0.5);
+}
+
+.membership-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.membership-card {
+  background: linear-gradient(145deg, rgba(26, 26, 26, 0.8), rgba(42, 42, 42, 0.8));
+  border-radius: 15px;
+  padding: 30px;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.membership-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+}
+
+.membership-card.featured {
+  border: 2px solid rgb(255, 54, 54);
+  transform: scale(1.05);
+}
+
+.membership-card.featured:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.membership-image {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.membership-card h3 {
+  font-family: 'Aspire', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: rgb(255, 54, 54);
+}
+
+.membership-card p {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+.membership-card ul {
+  text-align: left;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  color: #bbb;
+}
+
+.membership-card li {
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.know-more-btn {
+  background: linear-gradient(to right, #FF3636, rgb(190, 38, 0));
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.know-more-btn:hover {
+  background: linear-gradient(to right, rgb(190, 38, 0), #FF3636);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
