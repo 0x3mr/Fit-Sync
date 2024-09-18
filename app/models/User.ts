@@ -3,9 +3,11 @@ import db from "../lib/manga";
 import { v4 as uuidv4 } from "uuid";
 import cookie from "cookie";
 import { NextApiRequest } from "next";
+import bcrypt from 'bcrypt';
 
 const users = db.collection("users");
 const sessions = db.collection("sessions");
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 interface User {
   F_name: string;
@@ -16,6 +18,7 @@ interface User {
   height: number;
   weight: number;
   role: "user" | "admin" | "coach";
+  created_at: Date
 }
 
 interface Login_User {
@@ -61,7 +64,14 @@ export async function createUser(userData: User) {
   if (exist) {
     return { err: "Email Already Registered, Please login." };
   }
+  const email_Valid = emailRegex.test(userData.email);
+  if (!email_Valid) {
+    return { err: "Invalid Email." };
+  }
+  // Validate email further using third party api
   userData.role = "user";
+  userData.password = await bcrypt.hash(userData.password, 10);
+  userData.created_at = new Date();
   await users.insertOne(userData);
   return { user: userData.email };
 }
@@ -70,6 +80,11 @@ export async function loginUser(userData: Login_User) {
   const exist = await users.findOne({ email: userData.email });
   if (!exist) {
     return { err: "Email not found, Please Register." };
+  }
+  console.log(exist.password, userData.password);
+  const valid = await bcrypt.compare(userData.password, exist.password);
+  if (!valid) {
+    return { err: "Wrong Password..." };
   }
   const id = uuidv4();
   await sessions.insertOne({

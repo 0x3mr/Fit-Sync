@@ -43,8 +43,8 @@ export default function LoginPage() {
                 console.log('Login successful:', data);
                 window.location.href = '/';
             } else {
-                console.error('Login failed:', data.message);
-                alert(`Login failed: ${data.message}`);
+                console.error('Login failed:', data.err);
+                alert(`Login failed: ${data.err}`);
             }
         } catch (error) {
             console.error('Error occurred during login:', error);

@@ -48,8 +48,8 @@ export default function RegisterPage() {
                 console.log('Register successful:', data);
                 window.location.href = '/login';
             } else {
-                console.error('Register failed:', data.message);
-                alert(`Register failed: ${data.message}`);
+                console.error('Register failed:', data.err);
+                alert(`Register failed: ${data.err}`);
             }
         } catch (error) {
             console.error('Error occurred during login:', error);

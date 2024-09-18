@@ -15,7 +15,7 @@ export default function Home({ state }: { state: string }) {
           className="logo w-[60%] mt-20 md:mt-0 md:w-full"
           priority
         />
-        <p>you are {state}</p>
+        <p>you are logged out and {state}</p>
       </main>
     </div>
   );
