@@ -13,6 +13,17 @@ export default function Home({ name }: { name: string }) {
         <source src='/assets/Videos/BlackFading.mp4' type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+        <Image
+          src={Logo}
+          alt="Logo"
+          className="logo w-[60%] mt-20 md:mt-0 md:w-full"
+          priority
+        />
+        <p>your name is {name}</p>
+      </main>
+      </div>
       <div className="content">
         {/* Add your content here */}
         <h1>Your Page Content</h1>

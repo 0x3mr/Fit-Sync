@@ -2,11 +2,24 @@ import { ObjectId } from "mongodb";
 import db from "../lib/manga";
 import cookie from "cookie";
 import { NextApiRequest } from "next";
+import { start } from "repl";
+import { formatDate } from "../lib/utils";
 
 const memberships = db.collection("memberships");
 const sessions = db.collection("sessions");
 
-interface Ship {
+/////////////////////////// NOT WORKING YOU FS ERORR WHEN IMPORTING FROM HERE
+// export const ShipOptions = {
+//   15: ["Basic access"],
+//   30: ["Basic access", "Coach Followup"],
+//   60: ["Basic access", "Coach Followup", "Diet program"],
+//   90: ["Basic access", "Coach Followup", "Diet program", "Boxing access", "Live Coach Access"],
+//   360: ["Basic access", "Coach Followup", "Diet program", "Boxing access", "Live Coach Access", "24/7 support"]
+// }
+
+// export const PlanBenfits = ["Basic access", "Coach Followup", "Diet program", "Boxing access", "Live Coach Access", "24/7 support"]
+
+export interface Ship {
   email: string;
   start: Date; 
   end: Date;
@@ -32,7 +45,7 @@ export async function getShipBySessionId(sessionID: string) {
   if (!ship) {
     return { err: "Memebership not found." };
   }
-  return { ship };
+  return { ship: { ...ship, _id: ship._id.toString(), start: formatDate(ship.start), end: formatDate(ship.end) } };
 }
 
 export async function getShipByReq(req: NextApiRequest) {
