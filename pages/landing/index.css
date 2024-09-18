@@ -1,7 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden;
   background-color: black;
 }
 
@@ -34,7 +34,7 @@ html, body {
   text-align: center;
   padding: 50px;
   font-family: 'Aspire', sans-serif;
-  text-shadow: 0px 0px 50px rgba(255, 27, 27, 0.734); /* Regular shadow */
+  text-shadow: 0px 0px 50px rgba(255, 27, 27, 0.734);
 }
 
 .background-video {
@@ -43,9 +43,9 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: fill; /* Ensure the video covers the whole screen without distortion */
-  z-index: 1; /* Ensure the video stays behind content but still visible */
-  opacity: 0.60; /* Adjust opacity to match the desired look */
+  object-fit: fill;
+  z-index: 1;
+  opacity: 0.60;
 }
 
 .logo-container {
@@ -53,8 +53,8 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s ease; /* Smooth transition */
-  position: relative; /* Normal position at the top */
+  transition: all 0.3s ease;
+  position: relative;
   top: 0;
 }
 
@@ -62,18 +62,18 @@ html, body {
   position: relative;
   z-index: 1;
   height: auto;
-  transition: width 0.3s ease; /* Smooth transition */
+  transition: width 0.3s ease;
 }
 
 .logo-container.scrolled {
-  position: fixed; /* Pinned to the top during scrolling */
+  position: fixed;
   left: 0;
   right: 0;
-  z-index: 1000; /* Ensure it stays on top */
+  z-index: 1000;
 }
 
 .logo-container.scrolled img {
-  width: 250px; /* Shrink the logo when scrolling */
+  width: 250px;
 }
 
 @font-face {
@@ -85,9 +85,9 @@ html, body {
 
 .login-container {
   position: fixed;
-  top: 25px; /* Adjust this for desired top margin */
-  left: 25px; /* Adjust this for desired left margin */
-  z-index: 1001; /* Ensure it's on top of everything else */
+  top: 25px;
+  left: 25px;
+  z-index: 1001;
   display: flex;
   align-items: center;
 }
@@ -95,48 +95,47 @@ html, body {
 .login-container span {
   color: rgb(255, 54, 54);
   font-family: 'Aspire', sans-serif;
-  font-size: 1.35rem; /* Adjust the size accordingly */
-  line-height: 0.9; /* Tighter line spacing for FIT SYNC */
-  text-shadow: 0px 0px 50px rgba(255, 27, 27, 0.734); /* Same shadow as .title */
+  font-size: 1.35rem;
+  line-height: 0.9;
+  text-shadow: 0px 0px 50px rgba(255, 27, 27, 0.734);
   padding-left: 15px;
 }
 
 .login-button {
   background-color: transparent;
-  border: 2px solid rgb(255, 54, 54); /* Same color as .title */
-  color: rgb(255, 54, 54); /* Same color as .title */
+  border: 2px solid rgb(255, 54, 54);
+  color: rgb(255, 54, 54);
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   border-radius: 12px;
-  margin-left: 10px; /* Space between FIT SYNC and button */
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  margin-left: 10px;
+  transition: all 0.3s ease;
   font-family: 'Montserrat', sans-serif;
-  position: relative; /* Position relative for hover effects */
+  position: relative;
   width: 95px;
 }
 
 .login-button:hover {
-  background: linear-gradient(to top, #FF3636, rgb(190, 38, 0)); /* Red background on hover */
-  color: rgb(255, 255, 255); /* Change text color on hover */
-  border: 2px solid rgb(0, 0, 0); /* Border color change on hover */
+  background: linear-gradient(to top, #FF3636, rgb(190, 38, 0));
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(0, 0, 0);
 }
 
-/* The sliding 'Sign up' container */
 .sign-up {
-  display: none; /* Hidden initially */
+  display: none;
   position: absolute;
-  top: 100%; /* Position it below the button */
+  top: 100%;
   left: 0;
   color: rgb(255, 54, 54);
   padding: 10px 10px;
   font-size: 16px;
   border-radius: 12px 12px 12px 12px;
   z-index: -1;
-  opacity: 0; /* Start with it being invisible */
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
-  transform: translateY(-10px); /* Start off above */
-  white-space: nowrap; /* Prevents line breaks */
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(-10px);
+  white-space: nowrap;
   width: 70px;
 }
 
@@ -145,19 +144,19 @@ html, body {
 }
 
 .login-button:hover .sign-up {
-  display: block; /* Show it when hovering on the button */
+  display: block;
   opacity: 1;
-  transform: translateY(0); /* Slide it down */
+  transform: translateY(0);
 }
 
 .welcome-button-container {
-  position: relative; /* To position dropdown menu */
+  position: relative;
 }
 
 .welcome-button {
   background: transparent;
-  border: 2px solid rgb(255, 54, 54); /* Red border */
-  color: rgb(255, 54, 54); /* Red text */
+  border: 2px solid rgb(255, 54, 54);
+  color: rgb(255, 54, 54);
   padding: 10px 10px;
   font-size: 16px;
   cursor: pointer;
@@ -167,21 +166,20 @@ html, body {
 }
 
 .welcome-button span {
-  font-family: 'Montserrat', sans-serif; /* Ensure font is applied to the username text */
+  font-family: 'Montserrat', sans-serif;
   padding-right: 10px;
 }
 
 .welcome-button:hover {
-  color: rgb(255, 255, 255); /* White text on hover */
+  color: rgb(255, 255, 255);
 }
 
-/* Dropdown Menu Styles */
 .dropdown-menu {
   position: absolute;
-  top: 100%; /* Position below the button */
+  top: 100%;
   left: 0;
   border-radius: 12px;
-  width: max-content; /* Fit the width of the text */
+  width: max-content;
   z-index: 1000;
 }
 
@@ -189,7 +187,7 @@ html, body {
   margin-top: 20px;
   padding-left: 15px;
   font-size: 16px;
-  color: rgb(255, 255, 255); /* Red text */
+  color: rgb(255, 255, 255);
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
 }
@@ -199,13 +197,13 @@ html, body {
 }
 
 .dropdown-item:hover {
-  color: rgb(255, 66, 66); /* White text on hover */
+  color: rgb(255, 66, 66);
 }
 
 .fixed-text {
   position: absolute;
   color: white;
-  z-index: 100; /* Ensure it appears above other elements */
+  z-index: 100;
 }
 
 .content-container {
@@ -220,8 +218,8 @@ html, body {
   text-align: center;
   position: relative;
   z-index: 2;
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-  margin-top: 120px; /* Add margin to push it even further if needed */
+  background: rgba(0, 0, 0, 0.7);
+  margin-top: 120px;
 }
 
 .showcase-title {
