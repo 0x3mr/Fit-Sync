@@ -28,6 +28,10 @@ export default function Home({ name }: { name: string }) {
     window.location.href = '/logout';
   };
 
+  const handleDashboard = () => {
+    window.location.href = '/dashboard';
+  };
+
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
@@ -96,7 +100,7 @@ export default function Home({ name }: { name: string }) {
             </div>
             {showDropdown && (
               <div className="dropdown-menu">
-                <div className="dropdown-item"><LuLayoutDashboard size={20} color="red" className='icon' />  Dashboard</div>
+                <div className="dropdown-item" onClick={handleDashboard}><LuLayoutDashboard size={20} color="red" className='icon' />  Dashboard</div>
                 <div className="dropdown-item"><MdManageAccounts size={20} color="red" className='icon' />  Settings  </div>
                 <div className="dropdown-item" onClick={handleSignOut}><FaSignOutAlt size={20} color="red" className='icon' />  Log out</div>
               </div>
