@@ -7,6 +7,7 @@ import {
   FaUtensils,
   FaCrown,
   FaClock,
+  FaDumbbell,
 } from "react-icons/fa";
 import Logo from "@/app/assets/Images/Logo.png";
 import GymOverlay from "@/app/assets/Images/Gym-Overlay.png";
@@ -16,7 +17,7 @@ import MultiDateCalendar from "@/app/components/Calender";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
-export default function Dashboard({ name }: { name: string }) {
+export default function Dashboard() {
   const [selectedOption, setSelectedOption] = useState("Calendar");
   const [isScrolled, setIsScrolled] = useState(false);
   const daysRemaining = 1204;
@@ -65,8 +66,9 @@ export default function Dashboard({ name }: { name: string }) {
             <nav>
               {[
                 // "Calendar",
+                "Training Plan",
                 "Contact Coach",
-                "Motivation Quotes",
+                // "Motivation Quotes",
                 "Diet Plan",
               ].map((option) => (
                 <button
@@ -75,8 +77,9 @@ export default function Dashboard({ name }: { name: string }) {
                   onClick={() => setSelectedOption(option)}
                 >
                   {/* {option === "Calendar" && <FaCalendarAlt />} */}
+                  {option === "Training Plan" && <FaDumbbell />}
                   {option === "Contact Coach" && <FaComments />}
-                  {option === "Motivation Quotes" && <FaQuoteLeft />}
+                  {/* {option === "Motivation Quotes" && <FaQuoteLeft />} */}
                   {option === "Diet Plan" && <FaUtensils />}
                   {option}
                 </button>
