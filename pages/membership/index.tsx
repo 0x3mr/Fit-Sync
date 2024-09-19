@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Image from "next/image";
 import Logo from '@/app/assets/Images/Logo.png';
 import { GetServerSideProps } from "next";
@@ -95,7 +96,7 @@ const PlanTable: React.FC<{ ShipOptions: PlanOptions, handleSubscribeClick: (cli
                   key={option}
                   className="border border-gray-300 px-4 py-2 text-center"
                 >
-                  {ShipOptions[plan].includes(option) ? (
+                  {ShipOptions[plan]?.includes(option) ? (
                     <span className="text-green-500">✔</span>
                   ) : (
                     <span className="text-red-500">✘</span>

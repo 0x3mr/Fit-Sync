@@ -5,7 +5,7 @@ export async function middleware(req: NextRequest) {
   // List of paths to exclude from authentication
 
   const { pathname } = req.nextUrl;
-  const freeRoutes = ['/api/login', '/api/register', '/api/status', '/api/session', '/login', '/register', '/'];
+  const freeRoutes = ['/api/login', '/api/register', '/api/status', '/api/session', '/login', '/register', '/', '/401'];
 
   if (pathname.startsWith('/_next/static/') ||
     pathname.startsWith('/public/') ||
@@ -29,6 +29,7 @@ export async function middleware(req: NextRequest) {
 
   if (code) {
     const errorMessage = code === 1 ? 'Unauthorized: No session cookie found' : 'Unauthorized: session expired';
+    return NextResponse.redirect(new URL('/401', req.url));
     return NextResponse.json({ err: errorMessage }, { status: 401 });
   }
 

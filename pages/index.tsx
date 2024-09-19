@@ -7,8 +7,8 @@ import Logo from '@/app/assets/Images/Logo.png';
 import GymOverlay from '@/app/assets/Images/Gym-Overlay.png';
 import { GetServerSideProps } from 'next';
 import { getUserBySessionId } from '../app/models/User';
-import '../pages/landing/index.css';
-import '../app/assets/styles/video.css';
+import '@/app/assets/styles/landing.css';
+import '@/app/assets/styles/video.css';
 
 export default function Home({ name }: { name: string }) {
   const isLoggedIn = name !== 'Guest';
