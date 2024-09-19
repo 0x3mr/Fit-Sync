@@ -41,6 +41,7 @@
   display: flex;
   justify-content: center;
   padding: 1rem;
+  border-radius: 25px;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -51,11 +52,14 @@
 }
 
 .sidebar {
-  width: max-content;
+  width: 350px; /* Fixed width for sidebar */
+  height: min-content;
   background-color: rgba(40, 40, 40, 0.8);
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  border-radius: 25px;
+  margin-bottom: 5%;
 }
 
 .sidebar-title {
@@ -111,7 +115,7 @@
 .membership-info {
   background-color: rgba(255, 54, 54, 0.3);
   padding: 0.5rem 1rem;
-  border-radius: 5px;
+  border-radius: 25px;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -123,10 +127,14 @@
   flex: 1;
 }
 
+.pad-4 {
+  padding: 1rem;
+}
+
 .training-program {
   background-color: rgba(26, 26, 26, 0.8);
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 25px;
   flex: 1;
 }
 
@@ -140,33 +148,8 @@
 .calendar-container {
   background-color: rgba(26, 26, 26, 0.8);
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 25px;
   width: 350px;
-}
-
-/* Override react-calendar styles */
-.react-calendar {
-  width: 100%;
-  background-color: transparent;
-  border: none;
-  color: white;
-}
-
-.react-calendar__tile {
-  color: white;
-}
-
-.react-calendar__tile:enabled:hover,
-.react-calendar__tile:enabled:focus {
-  background-color: rgba(255, 54, 54, 0.5);
-}
-
-.react-calendar__tile--active {
-  background-color: rgb(255, 54, 54);
-}
-
-.react-calendar__month-view__weekdays {
-  color: rgb(255, 54, 54);
 }
 
 @media (max-width: 768px) {

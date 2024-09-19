@@ -33,15 +33,34 @@ const MultiDateCalendar = () => {
         day={day}
         outsideCurrentMonth={outsideCurrentMonth}
         selected={isSelected}
+        sx={{
+          color: isSelected ? '#fff' : 'red', // White text for selected, red for non-selected
+          backgroundColor: isSelected ? 'red' : 'transparent', // Red background for selected day
+          '&.Mui-selected': {
+            backgroundColor: 'red', // Red selection circle
+            color: '#fff', // White text for selected dates
+            '&:hover': {
+              backgroundColor: 'darkred', // Darker red on hover
+            },
+          },
+        }}
       />
     );
   };
 
   return (
-    <Box sx={{ width: 320, height: 400 }}>
+    <Box sx={{ width: 320, height: "auto"}}>
       <DateCalendar
         onChange={handleDateChange}
         slots={{ day: CustomDay }}
+        sx={{
+          '& .MuiPickersDay-root': {
+            color: 'red', // Unselected day numbers text color
+          },
+          '& .MuiDayCalendar-weekDayLabel': {
+            color: 'red', // Day labels (Mon, Tue, etc.) text color
+          },
+        }}
       />
     </Box>
   );
