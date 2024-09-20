@@ -68,33 +68,33 @@ export default function Dashboard({ data, plan }: { data: Ship, plan: string[] }
         <section className="pad-4">
           <aside className="sidebar">
             <h2 className="sidebar-title">MANAGE</h2>
-            <nav>
-              {[
-                // "Calendar",
-                // "Motivation Quotes",
-                "Training Plan",
-                plan.includes("Boxing access") && "Boxing Days", //premuim
-                plan.includes("Coach Followup") && "Coach Followup", //premuim
-                plan.includes("Live Coach Access") && "Contact Coach", //premuim
-                plan.includes("Diet program") && "Diet Plan",
-              ].filter(Boolean)
-              .map((option) => (
-                <button
-                  key={option}
-                  className={selectedOption === option ? "active" : ""}
-                  onClick={() => setSelectedOption(option)}
-                >
-                  {/* {option === "Calendar" && <FaCalendarAlt />} */}
-                  {/* {option === "Motivation Quotes" && <FaQuoteLeft />} */}
-                  {option === "Training Plan" && <FaDumbbell />}
-                  {option === "Contact Coach" &&  <FaComments />}
-                  {option === "Coach Followup" && <FaComments />}
-                  {option === "Boxing Days" && <FaComments />}
-                  {option === "Diet Plan" && <FaUtensils />}
-                  {option}
-                </button>
-              ))}
-            </nav>
+              <nav>
+                {[
+                  // "Calendar",
+                  // "Motivation Quotes",
+                  "Training Plan",
+                  plan.includes("Boxing access") && "Boxing Days", //premuim
+                  plan.includes("Coach Followup") && "Coach Followup", //premuim
+                  plan.includes("Live Coach Access") && "Contact Coach", //premuim
+                  plan.includes("Diet program") && "Diet Plan",
+                ].filter(Boolean)
+                .map((option) => (
+                  <button
+                    key={option as string}
+                    className={selectedOption === option ? "active" : ""}
+                    onClick={() => setSelectedOption(option as string)}
+                  >
+                    {/* {option === "Calendar" && <FaCalendarAlt />} */}
+                    {/* {option === "Motivation Quotes" && <FaQuoteLeft />} */}
+                    {option === "Training Plan" && <FaDumbbell />}
+                    {option === "Contact Coach" &&  <FaComments />}
+                    {option === "Coach Followup" && <FaComments />}
+                    {option === "Boxing Days" && <FaComments />}
+                    {option === "Diet Plan" && <FaUtensils />}
+                    {option}
+                  </button>
+                ))}
+              </nav>
           </aside>
 
           <div className="calendar-container">
