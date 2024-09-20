@@ -165,8 +165,8 @@ export default function RegisterPage() {
           <div className="register-link">
             <p>
               Already have an account?
-              <a href="/register" className="register-link-anchor">
-                Register
+              <a href="/login" className="register-link-anchor">
+                Login
               </a>
             </p>
           </div>
