@@ -8,7 +8,7 @@ import { formatDate } from "../lib/utils";
 const memberships = db.collection("memberships");
 const sessions = db.collection("sessions");
 
-/////////////////////////// NOT WORKING YOU FS ERORR WHEN IMPORTING FROM HERE
+/////////////////////////// NOT WORKING YOU  GET FS ERORR WHEN IMPORTING FROM HERE
 // export const ShipOptions = {
 //   15: ["Basic access"],
 //   30: ["Basic access", "Coach Followup"],
@@ -66,10 +66,12 @@ export async function createShip(ship: Ship) {
   if (exist) {
     return { err: "Membership Already Registered....." };
   }
-  if (ship.type < 0) ship.type = 3;
+  if (ship.type < 0) ship.type = 5; //default to 5 days
+
   ship.start = new Date();
-  ship.end = new Date();
-  ship.end.setMonth(ship.start.getMonth() + ship.type);
+  ship.end = new Date(ship.start);
+  ship.end.setDate(ship.end.getDate() + Number(ship.type));
+
   ship.pause_limit = 3;
   ship.status = "ongoing";
   await memberships.insertOne(ship);

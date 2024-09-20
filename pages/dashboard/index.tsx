@@ -15,8 +15,10 @@ import "@/app/assets/styles/video.css";
 import MultiDateCalendar from "@/app/components/Calender";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { GetServerSideProps } from "next";
+import { getShipBySessionId, Ship, } from "@/app/models/Memberships";
 
-export default function Dashboard({ name }: { name: string }) {
+export default function Dashboard({ data }: { data: Ship }) {
   const [selectedOption, setSelectedOption] = useState("Calendar");
   const [isScrolled, setIsScrolled] = useState(false);
   const daysRemaining = 1204;
@@ -108,3 +110,36 @@ export default function Dashboard({ name }: { name: string }) {
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const cookies = req.headers.cookie;
+  let data = null;
+
+  if (cookies) {
+    const cookie = require("cookie"); // Use the cookie package to parse cookies
+    const parsedCookies = cookie.parse(cookies);
+    const sessionID = parsedCookies.sessionID;
+    console.log("SSSSSSS", sessionID);
+
+    if (sessionID) {
+      const user = await getShipBySessionId(sessionID);
+      console.log(user);
+      if (!user.err) data = user.ship;
+      else{
+        return {
+          redirect: {
+            destination: '/membership',
+            permanent: false,
+          },
+        };    
+      }
+    }
+  }
+
+  return {
+    props: {
+      data: data || null,
+    },
+  };
+};
+
