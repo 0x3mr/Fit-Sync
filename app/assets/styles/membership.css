@@ -1,4 +1,5 @@
 
+
 .content{
     position: absolute;
     top: 50%;
@@ -6,9 +7,19 @@
     transform: translate(-50%, -50%);
     text-align: left
 }
+
 .content h1{
     font-size: 2rem;
     font-weight: 800;
+    margin-bottom: 60px;
+    padding-right: 12px;
+    padding-left: 12px;
+    font-family: "Aspire";
+    text-align: center;
+    line-height: 1.2;
+    background: linear-gradient(to top, #FF3636, rgb(190, 38, 0)); /* Apply gradient */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the text transparent to show the background */
 }
 
 .btnhh:hover {
@@ -84,24 +95,73 @@
 .subscribeBtn {
     width: 100%;
     height: 45px;
-    background: white;
+    background: #3f3fff; /* Changed to blue */
     border: none;
     border-radius: 40px;
     cursor: pointer;
     font-size: 16px;
-    color: #333;
+    color: white; /* Changed to white for better contrast */
     font-weight: 700;
     transition: background 0.3s ease, color 0.3s ease;
     margin-top: 40px;
 }
 
 .subscribeBtn:hover{
-    background-color: rgba(197, 197, 197, 0.646);
-
+    background-color: rgb(37, 193, 255); /* Darker blue on hover */
 }
 
 .highlight {
     color: aquamarine;
     font-size: 2.5rem;
     font-weight: 900;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.navBtn {
+  padding: 10px 10px;
+  margin-top: -6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .navBtn:hover {
+  opacity: 0.8;
+} */
+
+.homeBtn {
+  width: 115px;
+  background-color: transparent;
+  border: 2px solid rgb(255, 54, 54);  border-radius: 25px;
+}
+
+.homeBtn:hover {
+    background-color: rgb(255, 54, 54);
+  }
+
+.dashboardBtn {
+  background-color: transparent;
+  border: 2px solid rgb(37, 193, 255);
+}
+
+.changeMembershipBtn {
+  width: 210px;
+  background-color: transparent;
+  border: 2px solid rgb(0, 165, 38);  border-radius: 25px;
+}
+
+.changeMembershipBtn:hover {
+  background-color: rgb(0, 165, 38);
+}
+
+.btnIcon {
+  margin-right: 5px;
 }
