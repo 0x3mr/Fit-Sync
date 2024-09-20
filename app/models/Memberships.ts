@@ -9,7 +9,7 @@ const memberships = db.collection("memberships");
 const sessions = db.collection("sessions");
 
 /////////////////////////// NOT WORKING YOU  GET FS ERORR WHEN IMPORTING FROM HERE
-export const ShipOptions: { [key: number]: string[] }  = {
+export const ShipOptions: { [key: number]: string[] } = {
   5: ["Basic access", "Coach Followup", "Diet program", "Boxing access", "Live Coach Access", "24/7 support"],
   15: ["Basic access"],
   30: ["Basic access", "Coach Followup"],
@@ -22,13 +22,21 @@ export const ShipOptions: { [key: number]: string[] }  = {
 
 export interface Ship {
   email: string;
-  start: Date; 
+  start: Date;
   end: Date;
   status: "ongoing" | "ended" | "paused";
   pause_limit: number;
   type: number;
   days_left?: number;
 }
+
+type Updates = {
+  type?: number;
+  start?: Date;
+  end?: Date;
+  status?: "ongoing" | "ended" | "paused";
+  pause_limit?: number;
+};
 
 export function hasAccess(type: Number) {
   return ShipOptions[Number(type)];
@@ -51,7 +59,7 @@ export async function getShipBySessionId(sessionID: string) {
   if (!ship) {
     return { err: "Memebership not found." };
   }
-  const left = Math.ceil(Math.abs(ship.end - ship.start)/ (1000 * 60 * 60 * 24));
+  const left = Math.ceil(Math.abs(ship.end - ship.start) / (1000 * 60 * 60 * 24));
   return { ship: { ...ship, _id: ship._id.toString(), start: formatDate(ship.start), end: formatDate(ship.end), type: ship.type, days_left: left } };
 }
 
@@ -85,14 +93,34 @@ export async function createShip(ship: Ship) {
   return { ship: ship.email };
 }
 
-export async function updateShip(email: string, updateData: Ship) {
-    return await memberships.updateOne({ email: email }, { $set: updateData });
+export async function updateShip(email: string, updateData: Updates) {
+  if (!updateData.type) {
+    return { err: "Parameter missing." };
+  }
+  if (updateData.type < 0) updateData.type = 5; //default to 5 days
+
+  updateData.start = new Date();
+  updateData.end = new Date(updateData.start);
+  updateData.end.setDate(updateData.end.getDate() + Number(updateData.type));
+
+  updateData.pause_limit = 3;
+  updateData.status = "ongoing";
+
+  const ship = await memberships.updateOne({ email: email }, { $set: updateData });
+  if (!ship) {
+    return { err: "Membership not found." };
+  }
+  return { ship };
 }
 
 export async function deleteShip(email: string) {
-    const exist = await memberships.findOne({ email: email});
-    if (!exist) {
-      return { err: "Membership not found." };
-    }
-    return await memberships.deleteOne({ email: email });
+  const exist = await memberships.findOne({ email: email });
+  if (!exist) {
+    return { err: "Membership not found." };
+  }
+  const del = await memberships.deleteOne({ email: email });
+  if (!del) {
+    return { err: "Something went wrong." };
+  }
+  return {del}
 }
