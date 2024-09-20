@@ -9,13 +9,14 @@ const memberships = db.collection("memberships");
 const sessions = db.collection("sessions");
 
 /////////////////////////// NOT WORKING YOU  GET FS ERORR WHEN IMPORTING FROM HERE
-// export const ShipOptions = {
-//   15: ["Basic access"],
-//   30: ["Basic access", "Coach Followup"],
-//   60: ["Basic access", "Coach Followup", "Diet program"],
-//   90: ["Basic access", "Coach Followup", "Diet program", "Boxing access", "Live Coach Access"],
-//   360: ["Basic access", "Coach Followup", "Diet program", "Boxing access", "Live Coach Access", "24/7 support"]
-// }
+export const ShipOptions: { [key: number]: string[] }  = {
+  5: ["Basic access", "Coach Followup", "Diet program", "Boxing access", "Live Coach Access", "24/7 support"],
+  15: ["Basic access"],
+  30: ["Basic access", "Coach Followup"],
+  60: ["Basic access", "Coach Followup", "Diet program"],
+  90: ["Basic access", "Coach Followup", "Diet program", "Boxing access", "Live Coach Access"],
+  360: ["Basic access", "Coach Followup", "Diet program", "Boxing access", "Live Coach Access", "24/7 support"]
+}
 
 // export const PlanBenfits = ["Basic access", "Coach Followup", "Diet program", "Boxing access", "Live Coach Access", "24/7 support"]
 
@@ -26,6 +27,11 @@ export interface Ship {
   status: "ongoing" | "ended" | "paused";
   pause_limit: number;
   type: number;
+  days_left?: number;
+}
+
+export function hasAccess(type: Number) {
+  return ShipOptions[Number(type)];
 }
 
 export async function getAllShips() {
@@ -45,7 +51,8 @@ export async function getShipBySessionId(sessionID: string) {
   if (!ship) {
     return { err: "Memebership not found." };
   }
-  return { ship: { ...ship, _id: ship._id.toString(), start: formatDate(ship.start), end: formatDate(ship.end) } };
+  const left = Math.ceil(Math.abs(ship.end - ship.start)/ (1000 * 60 * 60 * 24));
+  return { ship: { ...ship, _id: ship._id.toString(), start: formatDate(ship.start), end: formatDate(ship.end), type: ship.type, days_left: left } };
 }
 
 export async function getShipByReq(req: NextApiRequest) {

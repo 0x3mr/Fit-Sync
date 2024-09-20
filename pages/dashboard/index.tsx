@@ -19,12 +19,13 @@ import MultiDateCalendar from "@/app/components/Calender";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { GetServerSideProps } from "next";
-import { getShipBySessionId, Ship, } from "@/app/models/Memberships";
+import { getShipBySessionId, Ship, hasAccess} from "@/app/models/Memberships";
+import Link from "next/link";
 
-export default function Dashboard({ data }: { data: Ship }) {
+export default function Dashboard({ data, plan }: { data: Ship, plan: string[] }) {
   const [selectedOption, setSelectedOption] = useState("Calendar");
   const [isScrolled, setIsScrolled] = useState(false);
-  const daysRemaining = 1204;
+  const daysRemaining = data.days_left;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,20 +71,25 @@ export default function Dashboard({ data }: { data: Ship }) {
             <nav>
               {[
                 // "Calendar",
-                "Training Plan",
-                "Contact Coach",
                 // "Motivation Quotes",
-                "Diet Plan",
-              ].map((option) => (
+                "Training Plan",
+                plan.includes("Boxing access") && "Boxing Days", //premuim
+                plan.includes("Coach Followup") && "Coach Followup", //premuim
+                plan.includes("Live Coach Access") && "Contact Coach", //premuim
+                plan.includes("Diet program") && "Diet Plan",
+              ].filter(Boolean)
+              .map((option) => (
                 <button
                   key={option}
                   className={selectedOption === option ? "active" : ""}
                   onClick={() => setSelectedOption(option)}
                 >
                   {/* {option === "Calendar" && <FaCalendarAlt />} */}
-                  {option === "Training Plan" && <FaDumbbell />}
-                  {option === "Contact Coach" && <FaComments />}
                   {/* {option === "Motivation Quotes" && <FaQuoteLeft />} */}
+                  {option === "Training Plan" && <FaDumbbell />}
+                  {option === "Contact Coach" &&  <FaComments />}
+                  {option === "Coach Followup" && <FaComments />}
+                  {option === "Boxing Days" && <FaComments />}
                   {option === "Diet Plan" && <FaUtensils />}
                   {option}
                 </button>
@@ -99,10 +105,12 @@ export default function Dashboard({ data }: { data: Ship }) {
           </div>
         </section>
         <main className="main-content">
-          <div className="membership-info">
-            <FaCrown /> <span>Pro Membership</span> |{" "}
-            <span>{daysRemaining} days remaining</span> <FaClock />
-          </div>
+        <Link href="/membership" passHref>
+  <div className="membership-info" style={{ cursor: "pointer", textDecoration: "none", color: "white" }}>
+    <FaCrown /> <span>Pro Membership</span> |{" "}
+    <span>{daysRemaining} days remaining</span> <FaClock />
+  </div>
+</Link>
 
           <div className="content-area">
             <div className="training-program">
@@ -121,17 +129,19 @@ export default function Dashboard({ data }: { data: Ship }) {
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const cookies = req.headers.cookie;
   let data = null;
+  let plan = null;
 
   if (cookies) {
     const cookie = require("cookie"); // Use the cookie package to parse cookies
     const parsedCookies = cookie.parse(cookies);
     const sessionID = parsedCookies.sessionID;
-    console.log("SSSSSSS", sessionID);
 
     if (sessionID) {
       const user = await getShipBySessionId(sessionID);
-      console.log(user);
-      if (!user.err) data = user.ship;
+      if (!user.err) {
+        data = user.ship;
+        plan = hasAccess(user.ship?.type)
+      }
       else{
         return {
           redirect: {
@@ -146,6 +156,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   return {
     props: {
       data: data || null,
+      plan: plan,
     },
   };
 };

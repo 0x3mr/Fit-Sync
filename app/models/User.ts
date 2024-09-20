@@ -18,7 +18,9 @@ interface User {
   height: number;
   weight: number;
   role: "user" | "admin" | "coach";
-  created_at: Date
+  gender?: "male" | "female" | "both" | "bi" | "gay" 
+  | "pansexual" | "nonsexual" | "Nonbinary";
+  created_at: Date;
 }
 
 interface Login_User {
