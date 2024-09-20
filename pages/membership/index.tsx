@@ -9,6 +9,7 @@ import "@/app/globals.css";
 import "@/app/assets/styles/video.css";
 import "@/app/assets/styles/membership.css";
 import { FC, useState } from "react";
+import Link from "next/link";
 
 type PlanOptions = {
   [key: number]: string[];
@@ -183,12 +184,14 @@ export default function Home({ data }: { data: Ship }) {
       </div>
       <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
         <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+        <Link href="/" passHref>
           <Image
             src={Logo}
             alt="Logo"
             className="logo w-[60%] mt-20 md:mt-0 md:w-full"
             priority
           />
+        </Link>
         </main>
       </div>
       <div className="content">

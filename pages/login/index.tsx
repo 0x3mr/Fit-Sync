@@ -4,6 +4,7 @@ import Logo from "@/app/assets/Images/Logo.png";
 import Image from "next/image";
 import "../../app/globals.css";
 import "@/app/assets/styles/login.css";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -50,11 +51,13 @@ export default function LoginPage() {
 
   return (
     <>
+    <Link href="/" passHref>
       <Image
         src={Logo}
         alt="Logo"
         className="login-logo w-[60%] mt-20 md:mt-0 md:w-full"
       />
+    </Link>
       <div className="login-wrapper">
         <form className="login-form" onSubmit={handleSubmit}>
           <h1 className="login-heading">Login</h1>

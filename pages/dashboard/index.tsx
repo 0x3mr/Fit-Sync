@@ -61,7 +61,13 @@ export default function Dashboard({ data, plan }: { data: Ship, plan: string[] }
       </div>
 
       <header className="dashboard-header">
-        <Image src={Logo} alt="Logo" width={225} height={75} priority />
+      <Link href="/" passHref>
+        <Image
+         src={Logo}
+         alt="Logo"
+         width={225} height={75} priority
+        />
+      </Link>
       </header>
 
       <div className="dashboard-content">
