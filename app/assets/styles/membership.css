@@ -95,19 +95,20 @@
 .subscribeBtn {
     width: 100%;
     height: 45px;
-    background: #3f3fff; /* Changed to blue */
+    background: #ffffff; /* Changed to blue */
     border: none;
     border-radius: 40px;
     cursor: pointer;
     font-size: 16px;
-    color: white; /* Changed to white for better contrast */
+    color: black; /* Changed to white for better contrast */
     font-weight: 700;
     transition: background 0.3s ease, color 0.3s ease;
     margin-top: 40px;
+    box-shadow: 0px 0px 20px 1px #ffffff;
 }
 
 .subscribeBtn:hover{
-    background-color: rgb(37, 193, 255); /* Darker blue on hover */
+    background-color: rgb(186, 186, 186); /* Darker blue on hover */
 }
 
 .highlight {
@@ -153,6 +154,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+  box-shadow: 0px 0px 20px 1px #25c1ff;
+}
+.dashboardBtn:hover{
+  background-color: rgb(37, 193, 255); /* Darker blue on hover */
 }
 
 .changeMembershipBtn {

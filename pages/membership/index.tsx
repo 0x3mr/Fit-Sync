@@ -240,13 +240,6 @@ export default function Home({ data }: { data: Ship }) {
                   Home
                 </button>
               </Link>
-              <button
-                className="navBtn changeMembershipBtn"
-                onClick={ShowPlansT}
-              >
-                <LayoutDashboard className="btnIcon" size={16} />
-                Change Membership
-              </button>
             </div>
           </div>
         )}
