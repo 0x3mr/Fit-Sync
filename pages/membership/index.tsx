@@ -236,7 +236,7 @@ export default function Home({ data }: { data: Ship }) {
             <div className="button-container">
               <Link href="/">
                 <button className="navBtn homeBtn">
-                  <Home className="btnIcon" size={16} />
+                  <House className="btnIcon" size={16} />
                   Home
                 </button>
               </Link>
