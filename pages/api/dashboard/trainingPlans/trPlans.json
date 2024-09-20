@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Full Body Strength",
+    "type": "Strength",
+    "exercises": [
+      { "name": "Squats", "sets": 4, "reps": 12 },
+      { "name": "Bench Press", "sets": 4, "reps": 10 },
+      { "name": "Deadlifts", "sets": 4, "reps": 8 },
+      { "name": "Pull-ups", "sets": 3, "reps": 10 }
+    ]
+  },
+  {
+    "name": "Upper Body Push",
+    "type": "Strength",
+    "exercises": [
+      { "name": "Overhead Press", "sets": 4, "reps": 10 },
+      { "name": "Incline Bench Press", "sets": 4, "reps": 8 },
+      { "name": "Lateral Raises", "sets": 3, "reps": 15 },
+      { "name": "Tricep Dips", "sets": 3, "reps": 12 }
+    ]
+  },
+  {
+    "name": "Lower Body Strength",
+    "type": "Strength",
+    "exercises": [
+      { "name": "Leg Press", "sets": 4, "reps": 12 },
+      { "name": "Romanian Deadlifts", "sets": 4, "reps": 10 },
+      { "name": "Walking Lunges", "sets": 3, "reps": 20 },
+      { "name": "Calf Raises", "sets": 3, "reps": 15 }
+    ]
+  },
+  {
+    "name": "HIIT Cardio",
+    "type": "Cardio",
+    "exercises": [
+      {
+        "name": "Sprint Intervals",
+        "sets": 6,
+        "duration": "30s sprint / 1m rest"
+      },
+      { "name": "Jump Squats", "sets": 4, "reps": 15 },
+      { "name": "Burpees", "sets": 3, "reps": 20 },
+      { "name": "Mountain Climbers", "sets": 3, "duration": "45s" }
+    ]
+  },
+  {
+    "name": "Core & Abs",
+    "type": "Strength",
+    "exercises": [
+      { "name": "Plank", "sets": 3, "duration": "1m" },
+      { "name": "Russian Twists", "sets": 3, "reps": 30 },
+      { "name": "Leg Raises", "sets": 4, "reps": 15 },
+      { "name": "Bicycle Crunches", "sets": 3, "reps": 25 }
+    ]
+  }
+]

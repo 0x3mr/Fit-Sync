@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import TrainingPlan from "./TrainingPlan";
+import DietPlan from "./DietPlan";
 import {
   FaCalendarAlt,
   FaComments,
@@ -102,8 +104,10 @@ export default function Dashboard() {
 
           <div className="content-area">
             <div className="training-program">
-              <h2>Today's Training Program</h2>
-              <div className="program-content"></div>
+              <div className="program-content">
+                {selectedOption === "Training Plan" && <TrainingPlan />}
+                {selectedOption === "Diet Plan" && <DietPlan />}
+              </div>
             </div>
           </div>
         </main>
