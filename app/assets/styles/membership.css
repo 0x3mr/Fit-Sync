@@ -150,6 +150,9 @@
 .dashboardBtn {
   background-color: transparent;
   border: 2px solid rgb(37, 193, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .changeMembershipBtn {

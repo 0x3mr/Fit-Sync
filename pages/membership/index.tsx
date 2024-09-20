@@ -9,7 +9,7 @@ import "@/app/assets/styles/video.css";
 import "@/app/assets/styles/membership.css";
 import { FC, useState } from "react";
 import Link from "next/link";
-import { House, LayoutDashboard } from "lucide-react";
+import { House, LayoutDashboard, Bolt } from "lucide-react";
 
 type PlanOptions = {
   [key: number]: string[];
@@ -198,7 +198,10 @@ export default function Home({ data }: { data: Ship }) {
             ) : (
               <div>
                 <Link href="/dashboard">
-                  <button className="subscribeBtn dashboardBtn">
+                  <button
+                    className="subscribeBtn dashboardBtn"
+                  >
+                    <LayoutDashboard className="btnIcon" size={16} />
                     Dashboard
                   </button>
                 </Link>
@@ -213,7 +216,7 @@ export default function Home({ data }: { data: Ship }) {
                     className="navBtn changeMembershipBtn"
                     onClick={ShowPlansT}
                   >
-                    <LayoutDashboard className="btnIcon" size={16} />
+                    <Bolt className="btnIcon" size={16} />
                     Change Membership
                   </button>
                 </div>
