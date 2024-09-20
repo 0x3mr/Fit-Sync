@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import TrainingPlan from "./TrainingPlan";
+import DietPlan from "./DietPlan";
 import {
   FaCalendarAlt,
   FaComments,
@@ -7,6 +9,7 @@ import {
   FaUtensils,
   FaCrown,
   FaClock,
+  FaDumbbell,
 } from "react-icons/fa";
 import Logo from "@/app/assets/Images/Logo.png";
 import GymOverlay from "@/app/assets/Images/Gym-Overlay.png";
@@ -67,8 +70,9 @@ export default function Dashboard({ data }: { data: Ship }) {
             <nav>
               {[
                 // "Calendar",
+                "Training Plan",
                 "Contact Coach",
-                "Motivation Quotes",
+                // "Motivation Quotes",
                 "Diet Plan",
               ].map((option) => (
                 <button
@@ -77,8 +81,9 @@ export default function Dashboard({ data }: { data: Ship }) {
                   onClick={() => setSelectedOption(option)}
                 >
                   {/* {option === "Calendar" && <FaCalendarAlt />} */}
+                  {option === "Training Plan" && <FaDumbbell />}
                   {option === "Contact Coach" && <FaComments />}
-                  {option === "Motivation Quotes" && <FaQuoteLeft />}
+                  {/* {option === "Motivation Quotes" && <FaQuoteLeft />} */}
                   {option === "Diet Plan" && <FaUtensils />}
                   {option}
                 </button>
@@ -101,8 +106,10 @@ export default function Dashboard({ data }: { data: Ship }) {
 
           <div className="content-area">
             <div className="training-program">
-              <h2>Today's Training Program</h2>
-              <div className="program-content"></div>
+              <div className="program-content">
+                {selectedOption === "Training Plan" && <TrainingPlan />}
+                {selectedOption === "Diet Plan" && <DietPlan />}
+              </div>
             </div>
           </div>
         </main>
