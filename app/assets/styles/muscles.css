@@ -1,0 +1,183 @@
+
+.body-map__body {
+    height: 80vh;
+    width: 100%;
+    max-width: 50%
+}
+
+.body-map__model {
+    color: #000
+}
+
+.body-map__muscle {
+    color: #ebebeb;
+    transition: color 25ms ease-in-out
+}
+
+.body-map__muscle:hover {
+    color: #fe5b7f;
+    cursor: pointer
+}
+
+.body-map__muscle_selected {
+    color: #fe5b7f;
+    transition: color 25ms ease-in-out
+}
+
+.body-map__muscle_targeted {
+    color: #ebebeb;
+    transition: color 25ms ease-in-out
+}
+
+.body-map__muscle_primary {
+    color: #fe5b7f;
+    transition: color 25ms ease-in-out
+}
+
+.body-map__muscle_secondary {
+    color: #f99f66;
+    transition: color 25ms ease-in-out
+}
+
+.body-map__muscle_tertiary {
+    color: #ffea73;
+    transition: color 25ms ease-in-out
+}
+
+input[type=range].custom-thumb {
+    --thumb-width: 26px;
+    --thumb-height: 26px;
+    --thumb-bg: #20409a
+}
+
+@media (min-width: 1024px) {
+    input[type=range].custom-thumb {
+        --thumb-width: 32px;
+        --thumb-height: 32px
+    }
+}
+
+input[type=range].custom-thumb::-webkit-slider-thumb {
+    width: var(--thumb-width);
+    height: var(--thumb-height);
+    background: var(--thumb-bg);
+    border-radius: 50%;
+    -webkit-appearance: none
+}
+
+input[type=range].custom-thumb::-moz-range-thumb {
+    width: var(--thumb-width);
+    height: var(--thumb-height);
+    background: var(--thumb-bg);
+    border-radius: 50%
+}
+
+@media screen and (max-width: 600px) {
+    .body-map__body {
+        height:650px;
+        max-width: 100%
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .body-map__body {
+        height:650px;
+        max-width: 100%
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .body-map__body {
+        height:600px;
+        max-width: 100%
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .body-map__body {
+        height:500px;
+        max-width: 100%
+    }
+}
+
+
+.w-screen {
+    width: 100vw
+}
+
+
+.flex {
+    display: flex
+}
+
+.justify-center {
+    justify-content: center
+}
+
+@media (min-width: 1536px) {
+
+    .\32xl\:flex-nowrap {
+        flex-wrap: nowrap
+    }
+}
+
+.w-full {
+    width: 100%
+}
+
+.px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem
+}
+
+.gap-x-2 {
+    -moz-column-gap: .5rem;
+    column-gap: .5rem
+}
+
+@media (min-width: 1024px) {
+    .lg\:w-full {
+        width: 100%
+    }
+}
+
+@media (min-width: 640px) {
+    .sm\:mx-auto {
+        margin-left: auto;
+        margin-right: auto
+    }
+
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    padding: 0 2.5rem; /* px-10 */
+    gap: 0.5rem; /* gap-x-2 */
+}
+
+.guy {
+    max-width: 300px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Adjust if needed */
+}
+
+@media (min-width: 1536px) { /* 2xl breakpoint */
+    .guy {
+        height: 90vh; /* 2xl:h-[90vh] */
+    }
+}
+
+@media (min-width: 1280px) { /* 3xl breakpoint */
+    .guy {
+        height: 95vh; /* 3xl:h-[95vh] */
+    }
+}
+
+@media (min-width: 1024px) { /* 4xl breakpoint */
+    .guy {
+        height: 40vh; /* 4xl:h-screen */
+    }
+}

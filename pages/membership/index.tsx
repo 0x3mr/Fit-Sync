@@ -7,43 +7,12 @@ import { formatDate } from "@/app/lib/utils";
 import "@/app/globals.css";
 import "@/app/assets/styles/video.css";
 import "@/app/assets/styles/membership.css";
+import { ShipOptions, PlanBenfits, PlanOptions } from "@/constants/gymPlans";
 import { FC, useState } from "react";
 import Link from "next/link";
 import { House, LayoutDashboard, Bolt, Trash, Pause,} from "lucide-react";
 
-type PlanOptions = {
-  [key: number]: string[];
-};
 
-const ShipOptions = {
-  15: ["Basic access"],
-  30: ["Basic access", "Coach Followup"],
-  60: ["Basic access", "Coach Followup", "Diet program"],
-  90: [
-    "Basic access",
-    "Coach Followup",
-    "Diet program",
-    "Boxing access",
-    "Live Coach Access",
-  ],
-  360: [
-    "Basic access",
-    "Coach Followup",
-    "Diet program",
-    "Boxing access",
-    "Live Coach Access",
-    "24/7 support",
-  ],
-};
-
-const PlanBenfits = [
-  "Basic access",
-  "Coach Followup",
-  "Diet program",
-  "Boxing access",
-  "Live Coach Access",
-  "24/7 support",
-];
 
 const SubsModal: FC<{
   data: Ship;

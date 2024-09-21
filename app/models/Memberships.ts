@@ -4,21 +4,10 @@ import cookie from "cookie";
 import { NextApiRequest } from "next";
 import { start } from "repl";
 import { formatDate } from "../lib/utils";
+import { ShipOptions } from '../../constants/gymPlans';
 
 const memberships = db.collection("memberships");
 const sessions = db.collection("sessions");
-
-/////////////////////////// NOT WORKING YOU  GET FS ERORR WHEN IMPORTING FROM HERE
-export const ShipOptions: { [key: number]: string[] } = {
-  5: ["Basic access", "Coach Followup", "Diet program", "Boxing access", "Live Coach Access", "24/7 support"],
-  15: ["Basic access"],
-  30: ["Basic access", "Diet program"],
-  60: ["Basic access", "Coach Followup", "Diet program"],
-  90: ["Basic access", "Coach Followup", "Diet program", "Boxing access", "Live Coach Access"],
-  360: ["Basic access", "Coach Followup", "Diet program", "Boxing access", "Live Coach Access", "24/7 support"]
-}
-
-// export const PlanBenfits = ["Basic access", "Coach Followup", "Diet program", "Boxing access", "Live Coach Access", "24/7 support"]
 
 export interface Ship {
   email: string;

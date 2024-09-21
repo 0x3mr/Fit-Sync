@@ -145,6 +145,13 @@
   margin-bottom: 1rem;
 }
 
+.training-program h3 {
+  font-family: 'Aspire', sans-serif;
+  font-size: 1.5rem;
+  color: rgb(255, 54, 54);
+  margin-bottom: 1rem;
+}
+
 .calendar-container {
   background-color: rgba(26, 26, 26, 0.8);
   padding: 1rem;

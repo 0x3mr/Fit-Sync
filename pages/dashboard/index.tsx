@@ -121,7 +121,7 @@ export default function Dashboard({ data, plan }: { data: Ship, plan: string[] }
           <div className="content-area">
             <div className="training-program">
               <div className="program-content">
-                {selectedOption === "Training Plan" && <TrainingPlan />}
+                {selectedOption === "Training Plan" && <TrainingPlan active={0}/>}
                 {selectedOption === "Diet Plan" && <DietPlan />}
               </div>
             </div>
