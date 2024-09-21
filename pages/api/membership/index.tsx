@@ -2,8 +2,9 @@ import { NextApiRequest, NextApiResponse } from "next";
 import {
   createShip,
   Ship,
-  updateShip,
   deleteShip,
+  updateShipPlan,
+  updateShipStatus,
 } from "@/app/models/Memberships";
 import { getUserByReq } from "@/app/models/User";
 import cookie from "cookie";
@@ -43,13 +44,17 @@ export default async function handler(
 
       try {
         // Here you will update the fields based on the req.body input
-        const updates = {
-          // Add the fields you want to update, e.g., status, type, etc.
-          // status: req.body.status,
-          type: req.body.type,
-        };
+        let updates = {}
+        let err2, ship
+        if (req.body.type){
+          updates = {type: req.body.type};
+          ({ err: err2, ship } = await updateShipPlan(email, updates));
+        }
+        else if (req.body.status){
+          updates = {status: req.body.status};
+          ({ err: err2, ship } = await updateShipStatus(email, updates));
+        }
 
-        const { err: err2, ship } = await updateShip(email, updates);
         if (err2 || !ship) {
           return res.status(400).json({ err: err2 });
         }

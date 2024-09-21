@@ -103,7 +103,7 @@
     color: black; /* Changed to white for better contrast */
     font-weight: 700;
     transition: background 0.3s ease, color 0.3s ease;
-    margin-top: 40px;
+    margin-top: 16px;
     box-shadow: 0px 0px 20px 1px #ffffff;
 }
 
@@ -117,10 +117,41 @@
     font-weight: 900;
 }
 
+.danger {
+  color: red;
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-shadow: 0px 0px 40px rgb(255 27 27);
+
+}
+
+.warn {
+  color: yellow;
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-shadow: 0px 0px 40px rgb(255, 251, 27);
+  
+}
+
+.war {
+  box-shadow: 0px 0px 20px 1px rgb(255, 251, 27);
+}
+.del{
+  box-shadow: 0px 0px 20px 1px #ff0000;
+}
+
+.dangerModal {
+  box-shadow: 0 0 30px 30px rgb(255 0 0 / 41%)
+}
+
+.warnModal{
+  box-shadow: 0 0 30px 30px rgba(255, 242, 0, 0.41)
+}
 .button-container {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  gap: 10px; 
 }
 
 .navBtn {
@@ -139,13 +170,14 @@
 } */
 
 .homeBtn {
-  width: 115px;
+  width: 170px;
   background-color: transparent;
-  border: 2px solid rgb(255, 54, 54);  border-radius: 25px;
+  border: 2px solid rgb(255 147 51);  
+  border-radius: 25px;
 }
 
 .homeBtn:hover {
-    background-color: rgb(255, 54, 54);
+    background-color: rgb(255 147 51);
   }
 
 .dashboardBtn {
@@ -162,7 +194,7 @@
 }
 
 .changeMembershipBtn {
-  width: 210px;
+  width: 250px;
   background-color: transparent;
   border: 2px solid rgb(0, 165, 38);  border-radius: 25px;
 }
@@ -173,4 +205,25 @@
 
 .btnIcon {
   margin-right: 5px;
+}
+
+
+.delMembershipBtn {
+  width: 210px;
+  background-color: transparent;
+  border: 2px solid rgb(255, 0, 0);  border-radius: 25px;
+}
+
+.delMembershipBtn:hover {
+  background-color: rgb(255, 0, 0);
+}
+
+.pauseMembershipBtn {
+  width: 210px;
+  background-color: transparent;
+  border: 2px solid rgb(227, 208, 0);  border-radius: 25px;
+}
+
+.pauseMembershipBtn:hover {
+  background-color: rgb(227, 208, 0);
 }

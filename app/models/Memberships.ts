@@ -93,7 +93,7 @@ export async function createShip(ship: Ship) {
   return { ship: ship.email };
 }
 
-export async function updateShip(email: string, updateData: Updates) {
+export async function updateShipPlan(email: string, updateData: Updates) {
   if (!updateData.type) {
     return { err: "Parameter missing." };
   }
@@ -105,6 +105,36 @@ export async function updateShip(email: string, updateData: Updates) {
 
   updateData.pause_limit = 3;
   updateData.status = "ongoing";
+
+  const ship = await memberships.updateOne({ email: email }, { $set: updateData });
+  if (!ship) {
+    return { err: "Membership not found." };
+  }
+  return { ship };
+}
+
+export async function updateShipStatus(email: string, updateData: Updates) {
+  if (!updateData.status) {
+    return { err: "Parameter missing." };
+  }
+
+  const exist = await memberships.findOne({ email: email });
+  if (!exist) {
+    return { err: "Membership not found." };
+  }
+
+  if (Number(exist.pause_limit) < 0){
+    return { err: "Maxmuim pauses reached." };
+  }
+  updateData.pause_limit = Number(exist.pause_limit) - 1;
+  
+  if (exist.status == "ongoing") {
+    updateData.status = "paused";
+  }
+  else{
+    updateData.status = "ongoing";
+  }
+  console.log(updateData, exist)
 
   const ship = await memberships.updateOne({ email: email }, { $set: updateData });
   if (!ship) {

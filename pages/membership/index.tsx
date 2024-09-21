@@ -9,7 +9,7 @@ import "@/app/assets/styles/video.css";
 import "@/app/assets/styles/membership.css";
 import { FC, useState } from "react";
 import Link from "next/link";
-import { House, LayoutDashboard, Bolt } from "lucide-react";
+import { House, LayoutDashboard, Bolt, Trash, Pause,} from "lucide-react";
 
 type PlanOptions = {
   [key: number]: string[];
@@ -53,7 +53,8 @@ const SubsModal: FC<{
   const handleModalSubs = async () => {
     try {
       let bod = {};
-      if (data.email){
+      console.log(data);
+      if (data){
          bod = {
           method: "PUT",
           headers: {
@@ -88,7 +89,7 @@ const SubsModal: FC<{
       console.error("Error occurred during Subscription:", error);
     }
 
-    console.log("Subsc to", plan);
+    console.log("Subsc to", plan, data);
   };
 
   return (
@@ -111,6 +112,122 @@ const SubsModal: FC<{
           onClick={handleModalSubs}
         >
           Subscribe
+        </button>
+      </div>
+    </div>
+  );
+};
+
+
+const DelModal: FC<{
+  data: Ship;
+  handleModalClose: (click: any) => void;
+}> = ({ data, handleModalClose }) => {
+  const handleModalSubs = async () => {
+    try {
+
+      const response = await fetch("/api/membership",
+        {
+          method: "DELETE",
+          credentials: "same-origin", //only for same-origin requests
+        },
+      )
+
+      const Apidata = await response.json();
+
+      if (response.ok) {
+        console.log("Del Membership successful:", Apidata);
+        window.location.href = "/membership";
+      } else {
+        console.error("Del Membership failed:", Apidata.err);
+        alert(`Del Membership failed: ${Apidata.err}`);
+      }
+    } catch (error) {
+      console.error("Error occurred during Del Membership:", error);
+    }
+
+  };
+
+  return (
+    <div className="modal-overlay">
+      <div className="modal-content dangerModal">
+        <button
+          type="button"
+          className="close-modal"
+          onClick={handleModalClose}
+        >
+          X
+        </button>
+        <h1>
+          Are you sure you wanna Delete Your <br></br>
+          <span className="danger">Membership?</span>
+        </h1>
+        <button
+          type="button"
+          className="subscribeBtn del"
+          onClick={handleModalSubs}
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const PauseModal: FC<{
+  data: Ship;
+  plan: string;
+  handleModalClose: (click: any) => void;
+}> = ({ data, plan, handleModalClose }) => {
+  const handleModalSubs = async () => {
+    try {
+
+      const response = await fetch("/api/membership",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ status: "reverse"  }),
+          credentials: "same-origin", //only for same-origin requests
+        },
+      )
+
+      const Apidata = await response.json();
+
+      if (response.ok) {
+        console.log("Membership Update successful:", Apidata);
+        window.location.href = "/membership";
+      } else {
+        console.error("Membership Update failed:", Apidata.err);
+        alert(`Membership Update failed: ${Apidata.err}`);
+      }
+    } catch (error) {
+      console.error("Error occurred during Membership Update:", error);
+    }
+
+  };
+
+  return (
+    <div className="modal-overlay">
+      <div className="modal-content warnModal">
+        <button
+          type="button"
+          className="close-modal"
+          onClick={handleModalClose}
+        >
+          X
+        </button>
+        <h1>
+          Are you sure you wanna {data.status == "ongoing" ? ("Pause") : ("Resume")} Your <br></br>
+          <span className="warn">Membership?</span>
+        </h1>
+        <button
+          type="button"
+          className="subscribeBtn war"
+          onClick={handleModalSubs}
+        >
+          {data.status == "ongoing" ? ("Pause") : ("Resume")}
         </button>
       </div>
     </div>
@@ -172,6 +289,8 @@ const PlanTable: FC<{
 
 export default function Home({ data }: { data: Ship }) {
   const [showModal, setShowModal] = useState(false);
+  const [showPauseModal, setPauseModal] = useState(false);
+  const [showDelModal, setDelModal] = useState(false);
   const [plan, setPlan] = useState("");
   const [ShowPlans, setShowPlans] = useState(false);
 
@@ -183,10 +302,20 @@ export default function Home({ data }: { data: Ship }) {
 
   function closeModal() {
     setShowModal(false);
+    setPauseModal(false);
+    setDelModal(false);
   }
 
   function ShowPlansT() {
     setShowPlans(true);
+  }
+
+  function ShowPause() {
+    setPauseModal(true);
+  }
+
+  function ShowDel() {
+    setDelModal(true);
   }
 
   return (
@@ -212,6 +341,22 @@ export default function Home({ data }: { data: Ship }) {
               </div>
             ) : (
               <div>
+               <div className="button-container">
+                <button
+                    className="navBtn pauseMembershipBtn"
+                    onClick={ShowPause}
+                  >
+                    <Pause className="btnIcon" size={16} />
+                  {data.status == "ongoing" ? ("Pause") : ("Resume")} Membership
+                  </button>
+                  <button
+                    className="navBtn delMembershipBtn"
+                    onClick={ShowDel}
+                  >
+                    <Trash className="btnIcon" size={16} />
+                    Delete Membership
+                  </button>
+                </div>
                 <Link href="/dashboard">
                   <button
                     className="subscribeBtn dashboardBtn"
@@ -260,6 +405,8 @@ export default function Home({ data }: { data: Ship }) {
         )}
       </div>
       {showModal && <SubsModal data={data} plan={plan} handleModalClose={closeModal} />}
+      {showPauseModal && <PauseModal data={data} plan={plan} handleModalClose={closeModal} />}
+      {showDelModal && <DelModal data={data} handleModalClose={closeModal} />}
     </div>
   );
 }
