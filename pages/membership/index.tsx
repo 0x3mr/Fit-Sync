@@ -46,28 +46,43 @@ const PlanBenfits = [
 ];
 
 const SubsModal: FC<{
+  data: Ship;
   plan: string;
   handleModalClose: (click: any) => void;
-}> = ({ plan, handleModalClose }) => {
+}> = ({ data, plan, handleModalClose }) => {
   const handleModalSubs = async () => {
     try {
-      const response = await fetch("/api/membership", {
+      let bod = {};
+      if (data.email){
+         bod = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ type: plan, email: data.email }),
+          credentials: "same-origin", //only for same-origin requests
+        };
+      }
+      else {
+       bod = {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ plan }),
         credentials: "same-origin", //only for same-origin requests
-      });
+      };
+      }
+      const response = await fetch("/api/membership", bod)
 
-      const data = await response.json();
+      const Apidata = await response.json();
 
       if (response.ok) {
-        console.log("Subscription successful:", data);
+        console.log("Subscription successful:", Apidata);
         window.location.href = "/membership";
       } else {
-        console.error("Subscription failed:", data.err);
-        alert(`Subscription failed: ${data.err}`);
+        console.error("Subscription failed:", Apidata.err);
+        alert(`Subscription failed: ${Apidata.err}`);
       }
     } catch (error) {
       console.error("Error occurred during Subscription:", error);
@@ -244,7 +259,7 @@ export default function Home({ data }: { data: Ship }) {
           </div>
         )}
       </div>
-      {showModal && <SubsModal plan={plan} handleModalClose={closeModal} />}
+      {showModal && <SubsModal data={data} plan={plan} handleModalClose={closeModal} />}
     </div>
   );
 }
