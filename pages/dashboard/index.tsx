@@ -20,10 +20,10 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { GetServerSideProps } from "next";
 import { getShipBySessionId, Ship, hasAccess} from "@/app/models/Memberships";
-import { getScheduleBySessionId } from "@/app/models/Training";
+import { getUserCalendarBySessionId, TrainingPlanType } from "@/app/models/User";
 import Link from "next/link";
 
-export default function Dashboard({ data, plan, calenD}: { data: Ship, plan: string[], calenD: HighlightedDay[] }) {
+export default function Dashboard({ data, plan, calenD, today}: { data: Ship, plan: string[], calenD: HighlightedDay[], today: TrainingPlanType}) {
   const [selectedOption, setSelectedOption] = useState("Calendar");
   const [isScrolled, setIsScrolled] = useState(false);
   const daysRemaining = data.days_left;
@@ -122,7 +122,7 @@ export default function Dashboard({ data, plan, calenD}: { data: Ship, plan: str
           <div className="content-area">
             <div className="training-program">
               <div className="program-content">
-                {selectedOption === "Training Plan" && <TrainingPlan active={0}/>}
+                {selectedOption === "Training Plan" && <TrainingPlan plan={today}/>}
                 {selectedOption === "Diet Plan" && <DietPlan />}
               </div>
             </div>
@@ -137,7 +137,9 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const cookies = req.headers.cookie;
   let data = null;
   let plan = null;
-  let calenD = null
+  let calenD = null;
+  let today = null;
+
   if (cookies) {
     const cookie = require("cookie"); // Use the cookie package to parse cookies
     const parsedCookies = cookie.parse(cookies);
@@ -157,15 +159,26 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
           },
         };    
       }
-      const c = await getScheduleBySessionId(sessionID);
-      if (!c.err) {
+      const {err, schedule} = await getUserCalendarBySessionId(sessionID);
+      if (!err && Array.isArray(schedule?.schedule)) {
         calenD = {
-          schedule: c.schedule?.map(entry => ({
-            ...entry,
-            date: entry.date.toISOString(), // Convert Date to ISO string
-          })),
+          schedule: schedule.schedule.map(entry => {
+            const isoDate = entry.date.toISOString(); // Convert Date to ISO string
+            if (isoDate.split('T')[0] === new Date().toISOString().split('T')[0]) {
+              today = {
+                ...entry,
+                date: isoDate,
+              }; // Save if it matches today's date
+            }
+            return {
+              ...entry,
+              date: isoDate,
+            };
+          }),
         };
+        
         calenD = calenD.schedule;
+        // console.log(calenD);
       }
       else{
         return {
@@ -182,7 +195,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     props: {
       data: data || null,
       plan: plan,
-      calenD: calenD
+      calenD: calenD, 
+      today: today
     },
   };
 };

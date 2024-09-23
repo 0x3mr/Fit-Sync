@@ -15,7 +15,7 @@ interface MultiDateCalendarProps {
 
 const MultiDateCalendar: React.FC<MultiDateCalendarProps> = ({ highlightedDays = [] }) => {
   const [selectedDates, setSelectedDates] = useState<Dayjs[]>([]);
-  console.log(highlightedDays);
+  // console.log("CALLLEEE", highlightedDays);
 
   const handleDateChange = (date: Dayjs | null) => {
     if (date) {
@@ -35,8 +35,11 @@ const MultiDateCalendar: React.FC<MultiDateCalendarProps> = ({ highlightedDays =
   // Safely create a map for faster lookup, ensure highlightedDays is an array
   const highlightMap = new Map(
     highlightedDays.map((day) => {
-      const dateKey = new Date(day.date).toDateString(); // Convert to local time
-      console.log(`Adding to map: ${dateKey} => ${day.type}`); // Log what you're adding
+      const dateObject = new Date(day.date);
+      // Set the time to the start of the day (midnight)
+      dateObject.setUTCHours(0, 0, 0, 0); // Set time to UTC midnight
+      const dateKey = dateObject.toDateString(); // Format it as 'Mon Sep 23 2024'
+      // console.log(`Adding to map: ${dateKey} => REALLL ${day.date}`); // Log what you're adding
       return [dateKey, day.type];
     })
   );
@@ -53,7 +56,7 @@ const MultiDateCalendar: React.FC<MultiDateCalendarProps> = ({ highlightedDays =
   
     // Find if this day is highlighted using the map
     const highlightType = highlightMap.get(day.toDate().toDateString());
-    console.log(highlightType, day.toDate().toDateString());
+    // console.log(highlightType, day.toDate().toDateString());
   
     return (
       <PickersDay
@@ -66,17 +69,13 @@ const MultiDateCalendar: React.FC<MultiDateCalendarProps> = ({ highlightedDays =
           backgroundColor: isSelected ? 'red' : 'transparent',
           // Apply specific background color for highlighted day types
           ...(highlightType === 'training' && {
-            backgroundColor: isToday ? '#ff5a5a' : '#ff5a5a96', // Override today’s style
-          }),
-          ...(highlightType === 'rest' && {
-            backgroundColor: isToday ? 'green' : '#00bfa596', // Override today’s style
-          }),
-          ...(highlightType === 'weekend' && {
-            backgroundColor: isToday ? 'orange' : '#ffa72696', // Override today’s style
+            backgroundColor: isToday ? '#ff9f9f82' : '#ff5a5a96', // Override today’s style
+            // border: 2px solid #00f8ff;
+
           }),
           // Add specific styles for today's date
           ...(isToday && {
-            border: `2px solid #1976d2`, // The blue circle indicating today
+            border: `2px solid #00f8ff`, // The blue circle indicating today
           }),
           '&.Mui-selected': {
             backgroundColor: 'red',
@@ -101,6 +100,10 @@ const MultiDateCalendar: React.FC<MultiDateCalendarProps> = ({ highlightedDays =
           },
           '& .MuiDayCalendar-weekDayLabel': {
             color: 'red', // Day labels (Mon, Tue, etc.) text color
+          },
+          '& .MuiPickersDay-root:not(.Mui-selected)': {
+            border: `2px solid #00f8ff` // fuxed up
+
           },
         }}
       />
