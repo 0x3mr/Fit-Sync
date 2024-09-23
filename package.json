@@ -16,6 +16,7 @@
     "@mui/x-date-pickers": "^7.17.0",
     "bcrypt": "^5.1.1",
     "cookie": "^0.6.0",
+    "date-fns": "^3.6.0",
     "dayjs": "^1.11.13",
     "fs": "^0.0.1-security",
     "instead": "^1.0.3",

@@ -6,7 +6,7 @@ import plan from '../../constants/trPlans.json'
 
 
 
-const TrainingPlan: React.FC  <{
+const TrainingPlan: React.FC<{
   active: number;
 }> = ({ active }) => {
   const dayPlan = plan[active]?.exercises || [];
@@ -16,8 +16,8 @@ const TrainingPlan: React.FC  <{
 
     <div className="training-plan">
       <h2 className="training-plan-title">
-        <span className="inline-flex items-center gap-2">
-          <FaDumbbell className="mr-2" />Today's Training Plan
+        <span className="inline-flex items-center gap-3">
+          <FaDumbbell className="mr-2" /> Today's Training Plan
         </span>
       </h2>
       <h3 className="training-plan-title">{plan[active]?.name}</h3>
@@ -29,7 +29,7 @@ const TrainingPlan: React.FC  <{
         <li>Cool-down: Stretching and light cardio</li>
       </ul>
       <br></br>
-      <MusclePlan active={plan[active]?.active}/>
+      <MusclePlan active={plan[active]?.active} />
     </div>
   );
 };

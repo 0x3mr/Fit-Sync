@@ -36,7 +36,7 @@ export async function getAllShips() {
 }
 
 export async function getShipByEmail(email: string) {
-  return await memberships.findOne({ email: new ObjectId(email) });
+  return await memberships.findOne({ email: email });
 }
 
 export async function getShipBySessionId(sessionID: string) {

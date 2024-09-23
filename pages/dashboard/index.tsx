@@ -15,14 +15,15 @@ import Logo from "@/app/assets/Images/Logo.png";
 import GymOverlay from "@/app/assets/Images/Gym-Overlay.png";
 import "@/app/assets/styles/dashboard.css";
 import "@/app/assets/styles/video.css";
-import MultiDateCalendar from "@/app/components/Calender";
+import MultiDateCalendar, { HighlightedDay } from "@/app/components/Calender";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { GetServerSideProps } from "next";
 import { getShipBySessionId, Ship, hasAccess} from "@/app/models/Memberships";
+import { getScheduleBySessionId } from "@/app/models/Training";
 import Link from "next/link";
 
-export default function Dashboard({ data, plan }: { data: Ship, plan: string[] }) {
+export default function Dashboard({ data, plan, calenD}: { data: Ship, plan: string[], calenD: HighlightedDay[] }) {
   const [selectedOption, setSelectedOption] = useState("Calendar");
   const [isScrolled, setIsScrolled] = useState(false);
   const daysRemaining = data.days_left;
@@ -106,7 +107,7 @@ export default function Dashboard({ data, plan }: { data: Ship, plan: string[] }
           <div className="calendar-container">
             {/* Wrap MultiDateCalendar in LocalizationProvider */}
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <MultiDateCalendar />
+                 <MultiDateCalendar highlightedDays={calenD} />
             </LocalizationProvider>
           </div>
         </section>
@@ -136,7 +137,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const cookies = req.headers.cookie;
   let data = null;
   let plan = null;
-
+  let calenD = null
   if (cookies) {
     const cookie = require("cookie"); // Use the cookie package to parse cookies
     const parsedCookies = cookie.parse(cookies);
@@ -156,6 +157,24 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
           },
         };    
       }
+      const c = await getScheduleBySessionId(sessionID);
+      if (!c.err) {
+        calenD = {
+          schedule: c.schedule?.map(entry => ({
+            ...entry,
+            date: entry.date.toISOString(), // Convert Date to ISO string
+          })),
+        };
+        calenD = calenD.schedule;
+      }
+      else{
+        return {
+          redirect: {
+            destination: '/setup',
+            permanent: false,
+          },
+        };    
+      }
     }
   }
 
@@ -163,6 +182,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     props: {
       data: data || null,
       plan: plan,
+      calenD: calenD
     },
   };
 };
