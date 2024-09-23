@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'Aspire';
+  src: url('/assets/fonts/aspire-sc-black-oblique.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 0;
+  padding-top: 20px;
+}
+
+.logo-container img {
+  position: relative;
+  z-index: 1;
+  height: auto;
+  transition: width 0.3s ease;
+}
+
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.settings-form, .help-support {
+  max-width: 300px;
+  margin: 0 auto;
+  background-color: rgba(26, 26, 26, 0.8);
+  padding: 1.5rem;
+  border-radius: 15px;
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0.60;
+}
+
+.overlay-image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.settings-header {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.settings-content {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.settings-sidebar {
+  width: 250px;
+  background-color: rgba(40, 40, 40, 0.8);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  margin-right: 1rem;
+  margin-top: 20px;
+}
+
+.sidebar-title {
+  font-family: 'Aspire', sans-serif;
+  color: rgb(255, 54, 54);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.settings-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.settings-sidebar button {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.settings-sidebar button.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: rgb(255, 54, 54);
+}
+
+.settings-sidebar button:hover:not(.disabled), .settings-sidebar button.active {
+  background: linear-gradient(to right, rgba(255, 54, 54, 0.2), transparent);
+  color: rgb(255, 54, 54);
+}
+
+.settings-sidebar button.disabled {
+  color: #666;
+  cursor: not-allowed;
+}
+
+.settings-main {
+  flex: 1;
+  background-color: rgba(26, 26, 26, 0.8);
+  padding: 2rem;
+  border-radius: 25px;
+  margin-top: 20px;
+}
+
+.settings-form, .help-support {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.settings-form h2, .help-support h2 {
+  font-family: 'Aspire', sans-serif;
+  font-size: 1.5rem;
+  color: rgb(255, 54, 54);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.form-group.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.form-group.checkbox input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.save-button {
+  background-color: rgb(255, 54, 54);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 2rem auto 0;
+}
+
+.save-button:hover {
+  background-color: rgb(220, 40, 40);
+}
+
+.help-support h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: rgb(255, 54, 54);
+}
+
+.authors-list {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
+}
+
+.author-card {
+  background-color: rgba(60, 60, 60, 0.6);
+  padding: 2.5rem;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 250px;
+}
+
+.author-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.author-card h4 {
+  margin-bottom: 0.5rem;
+}
+
+.author-socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.author-socials a {
+  color: white;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.author-socials a:hover {
+  color: rgb(255, 54, 54);
+}
+
+@media (max-width: 768px) {
+  .settings-content {
+    flex-direction: column;
+    height: calc(100vh - 132px);
+  }
+
+  .settings-sidebar {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    max-height: 200px;
+  }
+
+  .settings-main {
+    width: 100%;
+  }
+}
+
+.help-description {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-icon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 1.8rem;
+  background-color: rgba(255, 54, 54, 0.8);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 50%;
+  z-index: 1000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.dashboard-icon:hover {
+  background-color: rgba(220, 40, 40, 0.8);
+  box-shadow: 0 4px 15px rgba(220, 40, 40, 0.6);
+}
+
+.dashboard-icon svg {
+  display: block;
+  margin: auto;
+}
