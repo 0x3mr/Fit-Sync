@@ -3,7 +3,6 @@ import { DateCalendar, PickersDay } from '@mui/x-date-pickers';
 import { Dayjs } from 'dayjs';
 import { Box } from '@mui/material';
 import dayjs from 'dayjs';
-import '../assets/styles/calendar.css'
 
 export interface HighlightedDay {
   date: string; // ISO date string
