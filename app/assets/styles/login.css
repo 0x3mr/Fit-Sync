@@ -84,6 +84,12 @@
     background: #f1f1f1;
     color: rgb(30, 142, 255);
   }
+
+  .login-submit-btn:disabled {
+    background-color: #ccc; /* Change the background color */
+    cursor: not-allowed;    /* Show a not-allowed cursor */
+    opacity: 0.6;           /* Make it appear semi-transparent */
+  } 
   
   .login-link {
     font-size: 14.5px;

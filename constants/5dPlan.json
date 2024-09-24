@@ -1,0 +1,61 @@
+[
+  {
+    "name": "Chest and Triceps",
+    "active": ["chest", "triceps", "front-shoulders"],
+    "type": "Strength",
+    "exercises": [
+      { "name": "Bench Press", "sets": 4, "reps": 10 },
+      { "name": "Incline Bench Press", "sets": 4, "reps": 8 },
+      { "name": "Tricep Dips", "sets": 3, "reps": 12 },
+      { "name": "Overhead Tricep Extensions", "sets": 3, "reps": 12 }
+    ],
+    "id": "5d:1d"
+  },
+  {
+    "name": "Back and Biceps",
+    "active": ["lats", "biceps", "forearms", "traps", "traps-middle"],
+    "type": "Strength",
+    "exercises": [
+      { "name": "Pull-ups", "sets": 4, "reps": 10 },
+      { "name": "Bent-over Rows", "sets": 4, "reps": 8 },
+      { "name": "Bicep Curls", "sets": 4, "reps": 12 }
+    ],
+    "id": "5d:2d"
+  },
+  {
+    "name": "Legs",
+    "active": ["quads", "hamstrings", "glutes", "calves"],
+    "type": "Strength",
+    "exercises": [
+      { "name": "Squats", "sets": 4, "reps": 12 },
+      { "name": "Romanian Deadlifts", "sets": 4, "reps": 10 },
+      { "name": "Leg Press", "sets": 4, "reps": 12 },
+      { "name": "Calf Raises", "sets": 3, "reps": 15 }
+    ],
+    "id": "5d:3d"
+  },
+  {
+    "name": "Shoulders and Core",
+    "active": ["rear-shoulders", "abs", "obliques", "lowerback"],
+    "type": "Strength",
+    "exercises": [
+      { "name": "Front Shoulder Raises", "sets": 3, "reps": 15 },
+      { "name": "Plank", "sets": 3, "duration": "1m" },
+      { "name": "Russian Twists", "sets": 3, "reps": 30 },
+      { "name": "Leg Raises", "sets": 4, "reps": 15 }
+    ],
+    "id": "5d:4d"
+  },
+  {
+    "name": "Full Body",
+    "active": ["chest", "back", "legs", "front-shoulders", "rear-shoulders", "hands"],
+    "type": "Strength",
+    "exercises": [
+      { "name": "Pull-ups", "sets": 4, "reps": 10 },
+      { "name": "Bench Press", "sets": 4, "reps": 10 },
+      { "name": "Squats", "sets": 4, "reps": 12 },
+      { "name": "Bicep Curls", "sets": 4, "reps": 12 }
+    ],
+    "id": "5d:5d"
+  }
+]
