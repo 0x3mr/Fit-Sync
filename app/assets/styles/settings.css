@@ -256,19 +256,15 @@
 @media (max-width: 768px) {
   .settings-content {
     flex-direction: column;
-    height: calc(100vh - 132px);
   }
 
   .settings-sidebar {
-    width: 100%;
+    width: 90vw;
     margin-right: 0;
     margin-bottom: 1rem;
-    max-height: 200px;
+    height: min-content;
   }
 
-  .settings-main {
-    width: 100%;
-  }
 }
 
 .help-description {
@@ -301,4 +297,8 @@
 .dashboard-icon svg {
   display: block;
   margin: auto;
+}
+
+.op-50{
+  opacity: 50%;
 }
