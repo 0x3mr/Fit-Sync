@@ -161,10 +161,15 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
       }
       const {err, schedule} = await getUserCalendarBySessionId(sessionID);
       if (!err && Array.isArray(schedule?.schedule)) {
+        const tday = new Date();
+        const tdayf = tday.getFullYear() + '-' 
+            + String(tday.getMonth() + 1).padStart(2, '0') + '-' 
+            + String(tday.getDate()).padStart(2, '0');
         calenD = {
           schedule: schedule.schedule.map(entry => {
             const isoDate = entry.date.toISOString(); // Convert Date to ISO string
-            if (isoDate.split('T')[0] === new Date().toISOString().split('T')[0]) {
+            if (isoDate.split('T')[0] === tdayf) {
+              console.log(isoDate.split('T')[0] === new Date().toISOString().split('T')[0], isoDate.split('T')[0], new Date().toISOString().split('T')[0]);
               today = {
                 ...entry,
                 date: isoDate,

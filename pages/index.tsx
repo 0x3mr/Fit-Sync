@@ -36,6 +36,10 @@ export default function Home({ name }: { name: string }) {
     window.location.href = '/settings';
   };
 
+  const handleSettings = () => {
+    window.location.href = '/settings';
+  };
+
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
