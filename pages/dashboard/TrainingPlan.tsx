@@ -53,7 +53,7 @@ const TrainingPlan: React.FC<{
         <li>Cool-down: Stretching and light cardio</li>
       </ul>
       <br></br>
-      <MusclePlan active={finalData.active} />
+      {finalData ? <MusclePlan active={finalData.active} /> : null}
     </div>
   );
 };
