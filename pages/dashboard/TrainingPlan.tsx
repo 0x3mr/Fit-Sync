@@ -12,10 +12,12 @@ const TrainingPlan: React.FC<{
 }> = ({ plan }) => {
   console.log('TPPPPPPPPPPDPDPDPDPDD', plan);
   const dayPlan = plan?.plan?.id;
-  const index = Number(dayPlan?.split(':')[1][0]);
-  const file = dayPlan?.split(':')[0];
   let finalData = null;
   let exer: Exercise[] = [];
+
+  if (dayPlan){
+  const index = Number(dayPlan?.split(':')[1][0]);
+  const file = dayPlan?.split(':')[0];
 
   let jsonP: any[] = [];
   switch (file) {
@@ -34,11 +36,14 @@ const TrainingPlan: React.FC<{
   if (finalData){
     exer = finalData.exercises as Exercise[];
   }
+}
 
   return (
 
 
     <div className="training-plan">
+      {dayPlan ?(
+        <div>
       <h2 className="training-plan-title">
         <span className="inline-flex items-center gap-3">
           <FaDumbbell className="mr-2" /> Today's Training Plan
@@ -54,6 +59,12 @@ const TrainingPlan: React.FC<{
       </ul>
       <br></br>
       {finalData ? <MusclePlan active={finalData.active} /> : null}
+      </div>
+      ) : (
+        <div>
+          <h3 className="training-plan-title">Rest And enjoy the silence! and keep a healthy diet 🚀</h3>
+        </div>
+      )}
     </div>
   );
 };
