@@ -1,0 +1,808 @@
+[
+  {
+    "name": "Normal Weight Day 1",
+    "meals": [
+      {
+        "name": "Breakfast",
+        "choices": [
+          {
+            "name": "Grilled Chicken Salad",
+            "ingredients": [
+              "Grilled Chicken",
+              "Lettuce",
+              "Tomato",
+              "Cucumber",
+              "Olive Oil"
+            ],
+            "calories": 400,
+            "protein": 30,
+            "carbs": 10,
+            "fats": 25,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Quinoa Bowl",
+            "ingredients": ["Quinoa", "Black Beans", "Avocado", "Corn", "Lime"],
+            "calories": 500,
+            "protein": 15,
+            "carbs": 70,
+            "fats": 20,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Fruit Smoothie",
+            "ingredients": ["Banana", "Berries", "Yogurt", "Honey"],
+            "calories": 300,
+            "protein": 10,
+            "carbs": 60,
+            "fats": 5,
+            "isVegetarian": true,
+            "isHighProtein": false
+          }
+        ]
+      },
+      {
+        "name": "Lunch",
+        "choices": [
+          {
+            "name": "Turkey and Avocado Wrap",
+            "ingredients": [
+              "Turkey",
+              "Avocado",
+              "Whole Wheat Tortilla",
+              "Spinach"
+            ],
+            "calories": 450,
+            "protein": 35,
+            "carbs": 40,
+            "fats": 15,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Vegetable Stir-Fry with Tofu",
+            "ingredients": ["Tofu", "Mixed Vegetables", "Soy Sauce", "Rice"],
+            "calories": 400,
+            "protein": 20,
+            "carbs": 60,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Pasta Salad with Chickpeas",
+            "ingredients": [
+              "Pasta",
+              "Chickpeas",
+              "Cherry Tomatoes",
+              "Feta",
+              "Olive Oil"
+            ],
+            "calories": 500,
+            "protein": 25,
+            "carbs": 70,
+            "fats": 15,
+            "isVegetarian": true,
+            "isHighProtein": false
+          }
+        ]
+      },
+      {
+        "name": "Dinner",
+        "choices": [
+          {
+            "name": "Baked Salmon with Asparagus",
+            "ingredients": ["Salmon", "Asparagus", "Lemon", "Olive Oil"],
+            "calories": 600,
+            "protein": 40,
+            "carbs": 20,
+            "fats": 35,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Stuffed Bell Peppers",
+            "ingredients": ["Bell Peppers", "Rice", "Ground Turkey", "Cheese"],
+            "calories": 500,
+            "protein": 30,
+            "carbs": 50,
+            "fats": 20,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Vegetable Soup with Bread",
+            "ingredients": [
+              "Mixed Vegetables",
+              "Vegetable Broth",
+              "Whole Grain Bread"
+            ],
+            "calories": 350,
+            "protein": 10,
+            "carbs": 60,
+            "fats": 5,
+            "isVegetarian": true,
+            "isHighProtein": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Normal Weight Day 2",
+    "meals": [
+      {
+        "name": "Breakfast",
+        "choices": [
+          {
+            "name": "Oatmeal with Fruits",
+            "ingredients": ["Oats", "Banana", "Berries", "Honey"],
+            "calories": 350,
+            "protein": 10,
+            "carbs": 60,
+            "fats": 5,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Egg and Spinach Omelet",
+            "ingredients": ["Eggs", "Spinach", "Cheese"],
+            "calories": 300,
+            "protein": 25,
+            "carbs": 5,
+            "fats": 20,
+            "isVegetarian": true,
+            "isHighProtein": true
+          },
+          {
+            "name": "Greek Yogurt Parfait",
+            "ingredients": ["Greek Yogurt", "Granola", "Berries"],
+            "calories": 400,
+            "protein": 15,
+            "carbs": 50,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": false
+          }
+        ]
+      },
+      {
+        "name": "Lunch",
+        "choices": [
+          {
+            "name": "Chicken Caesar Salad",
+            "ingredients": [
+              "Grilled Chicken",
+              "Romaine Lettuce",
+              "Caesar Dressing"
+            ],
+            "calories": 500,
+            "protein": 35,
+            "carbs": 15,
+            "fats": 25,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Caprese Sandwich",
+            "ingredients": ["Mozzarella", "Tomatoes", "Basil", "Balsamic"],
+            "calories": 400,
+            "protein": 20,
+            "carbs": 50,
+            "fats": 15,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Vegetable Sushi Rolls",
+            "ingredients": ["Rice", "Nori", "Vegetables"],
+            "calories": 300,
+            "protein": 10,
+            "carbs": 60,
+            "fats": 5,
+            "isVegetarian": true,
+            "isHighProtein": false
+          }
+        ]
+      },
+      {
+        "name": "Dinner",
+        "choices": [
+          {
+            "name": "Grilled Shrimp Tacos",
+            "ingredients": ["Shrimp", "Corn Tortillas", "Cabbage", "Avocado"],
+            "calories": 500,
+            "protein": 30,
+            "carbs": 40,
+            "fats": 20,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Vegetable Stir-Fry with Noodles",
+            "ingredients": ["Noodles", "Mixed Vegetables", "Soy Sauce"],
+            "calories": 400,
+            "protein": 15,
+            "carbs": 70,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Beef and Broccoli",
+            "ingredients": ["Beef", "Broccoli", "Rice"],
+            "calories": 600,
+            "protein": 45,
+            "carbs": 40,
+            "fats": 20,
+            "isVegetarian": false,
+            "isHighProtein": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Normal Weight Day 3",
+    "meals": [
+      {
+        "name": "Breakfast",
+        "choices": [
+          {
+            "name": "Smoothie Bowl",
+            "ingredients": ["Banana", "Berries", "Granola", "Yogurt"],
+            "calories": 350,
+            "protein": 10,
+            "carbs": 60,
+            "fats": 5,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Avocado Toast with Eggs",
+            "ingredients": ["Avocado", "Eggs", "Whole Grain Bread"],
+            "calories": 400,
+            "protein": 20,
+            "carbs": 30,
+            "fats": 25,
+            "isVegetarian": true,
+            "isHighProtein": true
+          },
+          {
+            "name": "Protein Pancakes",
+            "ingredients": ["Protein Powder", "Eggs", "Oats"],
+            "calories": 450,
+            "protein": 30,
+            "carbs": 50,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": true
+          }
+        ]
+      },
+      {
+        "name": "Lunch",
+        "choices": [
+          {
+            "name": "Mediterranean Chickpea Salad",
+            "ingredients": ["Chickpeas", "Cucumber", "Feta", "Olives"],
+            "calories": 400,
+            "protein": 15,
+            "carbs": 50,
+            "fats": 15,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Banh Mi Sandwich",
+            "ingredients": ["Pork", "Pickled Vegetables", "Cilantro", "Bread"],
+            "calories": 500,
+            "protein": 30,
+            "carbs": 60,
+            "fats": 15,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Thai Peanut Noodle Salad",
+            "ingredients": ["Rice Noodles", "Peanut Sauce", "Vegetables"],
+            "calories": 450,
+            "protein": 15,
+            "carbs": 70,
+            "fats": 15,
+            "isVegetarian": true,
+            "isHighProtein": false
+          }
+        ]
+      },
+      {
+        "name": "Dinner",
+        "choices": [
+          {
+            "name": "Pork Tenderloin with Veggies",
+            "ingredients": ["Pork", "Mixed Vegetables"],
+            "calories": 550,
+            "protein": 40,
+            "carbs": 25,
+            "fats": 20,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Vegetable Curry with Rice",
+            "ingredients": ["Vegetables", "Curry Sauce", "Rice"],
+            "calories": 500,
+            "protein": 15,
+            "carbs": 80,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Grilled Steak with Sweet Potatoes",
+            "ingredients": ["Steak", "Sweet Potatoes"],
+            "calories": 600,
+            "protein": 50,
+            "carbs": 40,
+            "fats": 25,
+            "isVegetarian": false,
+            "isHighProtein": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Normal Weight Day 4",
+    "meals": [
+      {
+        "name": "Breakfast",
+        "choices": [
+          {
+            "name": "Peanut Butter Banana Toast",
+            "ingredients": ["Whole Grain Bread", "Peanut Butter", "Banana"],
+            "calories": 400,
+            "protein": 15,
+            "carbs": 50,
+            "fats": 15,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Cottage Cheese with Pineapple",
+            "ingredients": ["Cottage Cheese", "Pineapple"],
+            "calories": 300,
+            "protein": 25,
+            "carbs": 30,
+            "fats": 5,
+            "isVegetarian": true,
+            "isHighProtein": true
+          },
+          {
+            "name": "Chia Seed Pudding",
+            "ingredients": ["Chia Seeds", "Almond Milk", "Honey"],
+            "calories": 350,
+            "protein": 10,
+            "carbs": 40,
+            "fats": 15,
+            "isVegetarian": true,
+            "isHighProtein": false
+          }
+        ]
+      },
+      {
+        "name": "Lunch",
+        "choices": [
+          {
+            "name": "Lentil Soup with Bread",
+            "ingredients": ["Lentils", "Vegetable Broth", "Whole Grain Bread"],
+            "calories": 400,
+            "protein": 20,
+            "carbs": 60,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Shrimp and Avocado Salad",
+            "ingredients": ["Shrimp", "Avocado", "Mixed Greens"],
+            "calories": 500,
+            "protein": 30,
+            "carbs": 20,
+            "fats": 25,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Veggie Burger",
+            "ingredients": [
+              "Veggie Patty",
+              "Lettuce",
+              "Tomato",
+              "Whole Grain Bun"
+            ],
+            "calories": 450,
+            "protein": 20,
+            "carbs": 50,
+            "fats": 15,
+            "isVegetarian": true,
+            "isHighProtein": false
+          }
+        ]
+      },
+      {
+        "name": "Dinner",
+        "choices": [
+          {
+            "name": "Chicken Fajitas",
+            "ingredients": ["Chicken", "Bell Peppers", "Tortillas"],
+            "calories": 550,
+            "protein": 35,
+            "carbs": 50,
+            "fats": 20,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Stuffed Zucchini Boats",
+            "ingredients": ["Zucchini", "Ground Turkey", "Cheese"],
+            "calories": 400,
+            "protein": 25,
+            "carbs": 30,
+            "fats": 15,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Mushroom Risotto",
+            "ingredients": ["Arborio Rice", "Mushrooms", "Broth"],
+            "calories": 500,
+            "protein": 15,
+            "carbs": 80,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Normal Weight Day 5",
+    "meals": [
+      {
+        "name": "Breakfast",
+        "choices": [
+          {
+            "name": "Acai Bowl",
+            "ingredients": ["Acai", "Granola", "Banana", "Berries"],
+            "calories": 400,
+            "protein": 10,
+            "carbs": 70,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Egg White and Spinach Wrap",
+            "ingredients": ["Egg Whites", "Spinach", "Whole Wheat Tortilla"],
+            "calories": 300,
+            "protein": 20,
+            "carbs": 30,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": true
+          },
+          {
+            "name": "Smoothie with Protein Powder",
+            "ingredients": ["Protein Powder", "Banana", "Almond Milk"],
+            "calories": 350,
+            "protein": 30,
+            "carbs": 40,
+            "fats": 5,
+            "isVegetarian": true,
+            "isHighProtein": true
+          }
+        ]
+      },
+      {
+        "name": "Lunch",
+        "choices": [
+          {
+            "name": "Pasta Primavera",
+            "ingredients": ["Pasta", "Mixed Vegetables", "Parmesan"],
+            "calories": 500,
+            "protein": 20,
+            "carbs": 70,
+            "fats": 15,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Cobb Salad",
+            "ingredients": [
+              "Chicken",
+              "Bacon",
+              "Egg",
+              "Avocado",
+              "Blue Cheese"
+            ],
+            "calories": 600,
+            "protein": 40,
+            "carbs": 15,
+            "fats": 40,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Black Bean Tacos",
+            "ingredients": ["Black Beans", "Tortillas", "Avocado"],
+            "calories": 450,
+            "protein": 15,
+            "carbs": 60,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": false
+          }
+        ]
+      },
+      {
+        "name": "Dinner",
+        "choices": [
+          {
+            "name": "Grilled Chicken with Quinoa",
+            "ingredients": ["Chicken", "Quinoa", "Vegetables"],
+            "calories": 600,
+            "protein": 45,
+            "carbs": 50,
+            "fats": 20,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Vegetable Stir-Fry with Tofu",
+            "ingredients": ["Tofu", "Mixed Vegetables", "Soy Sauce"],
+            "calories": 400,
+            "protein": 20,
+            "carbs": 60,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Baked Cod with Sweet Potatoes",
+            "ingredients": ["Cod", "Sweet Potatoes"],
+            "calories": 550,
+            "protein": 35,
+            "carbs": 40,
+            "fats": 20,
+            "isVegetarian": false,
+            "isHighProtein": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Normal Weight Day 6",
+    "meals": [
+      {
+        "name": "Breakfast",
+        "choices": [
+          {
+            "name": "Fruit Salad with Yogurt",
+            "ingredients": ["Mixed Fruits", "Yogurt"],
+            "calories": 300,
+            "protein": 10,
+            "carbs": 45,
+            "fats": 5,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Oatmeal with Almonds",
+            "ingredients": ["Oats", "Almonds", "Honey"],
+            "calories": 400,
+            "protein": 15,
+            "carbs": 60,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Veggie Omelette",
+            "ingredients": ["Eggs", "Spinach", "Bell Peppers"],
+            "calories": 350,
+            "protein": 25,
+            "carbs": 30,
+            "fats": 15,
+            "isVegetarian": true,
+            "isHighProtein": true
+          }
+        ]
+      },
+      {
+        "name": "Lunch",
+        "choices": [
+          {
+            "name": "Chicken Caesar Salad",
+            "ingredients": ["Chicken", "Romaine Lettuce", "Caesar Dressing"],
+            "calories": 500,
+            "protein": 35,
+            "carbs": 15,
+            "fats": 25,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Caprese Salad",
+            "ingredients": ["Tomatoes", "Mozzarella", "Basil", "Olive Oil"],
+            "calories": 350,
+            "protein": 20,
+            "carbs": 25,
+            "fats": 20,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Falafel Wrap",
+            "ingredients": ["Falafel", "Lettuce", "Tomato", "Wrap"],
+            "calories": 450,
+            "protein": 15,
+            "carbs": 50,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": false
+          }
+        ]
+      },
+      {
+        "name": "Dinner",
+        "choices": [
+          {
+            "name": "Stuffed Peppers",
+            "ingredients": ["Bell Peppers", "Rice", "Ground Meat"],
+            "calories": 500,
+            "protein": 30,
+            "carbs": 50,
+            "fats": 15,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Vegetable Stir-Fry",
+            "ingredients": ["Mixed Vegetables", "Soy Sauce"],
+            "calories": 400,
+            "protein": 10,
+            "carbs": 70,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Baked Salmon with Asparagus",
+            "ingredients": ["Salmon", "Asparagus"],
+            "calories": 600,
+            "protein": 45,
+            "carbs": 10,
+            "fats": 30,
+            "isVegetarian": false,
+            "isHighProtein": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Normal Weight Day 7",
+    "meals": [
+      {
+        "name": "Breakfast",
+        "choices": [
+          {
+            "name": "Greek Yogurt Parfait",
+            "ingredients": ["Greek Yogurt", "Granola", "Fruits"],
+            "calories": 400,
+            "protein": 20,
+            "carbs": 50,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Avocado Toast",
+            "ingredients": ["Whole Grain Bread", "Avocado", "Egg"],
+            "calories": 350,
+            "protein": 15,
+            "carbs": 35,
+            "fats": 20,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Smoothie Bowl",
+            "ingredients": ["Smoothie Base", "Toppings"],
+            "calories": 300,
+            "protein": 10,
+            "carbs": 60,
+            "fats": 5,
+            "isVegetarian": true,
+            "isHighProtein": false
+          }
+        ]
+      },
+      {
+        "name": "Lunch",
+        "choices": [
+          {
+            "name": "Turkey and Avocado Wrap",
+            "ingredients": ["Turkey", "Avocado", "Wrap"],
+            "calories": 500,
+            "protein": 35,
+            "carbs": 40,
+            "fats": 15,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Hummus and Veggie Plate",
+            "ingredients": ["Hummus", "Carrots", "Cucumber"],
+            "calories": 350,
+            "protein": 10,
+            "carbs": 40,
+            "fats": 15,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Quinoa Salad",
+            "ingredients": ["Quinoa", "Chickpeas", "Vegetables"],
+            "calories": 450,
+            "protein": 15,
+            "carbs": 60,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": false
+          }
+        ]
+      },
+      {
+        "name": "Dinner",
+        "choices": [
+          {
+            "name": "Chicken Stir-Fry",
+            "ingredients": ["Chicken", "Vegetables", "Soy Sauce"],
+            "calories": 550,
+            "protein": 40,
+            "carbs": 30,
+            "fats": 20,
+            "isVegetarian": false,
+            "isHighProtein": true
+          },
+          {
+            "name": "Vegetable Curry",
+            "ingredients": ["Vegetables", "Curry Sauce", "Rice"],
+            "calories": 500,
+            "protein": 15,
+            "carbs": 80,
+            "fats": 10,
+            "isVegetarian": true,
+            "isHighProtein": false
+          },
+          {
+            "name": "Baked Chicken with Broccoli",
+            "ingredients": ["Chicken", "Broccoli"],
+            "calories": 600,
+            "protein": 50,
+            "carbs": 10,
+            "fats": 20,
+            "isVegetarian": false,
+            "isHighProtein": true
+          }
+        ]
+      }
+    ]
+  }
+]

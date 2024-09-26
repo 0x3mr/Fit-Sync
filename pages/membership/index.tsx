@@ -1,7 +1,4 @@
-import Image from "next/image";
-import Logo from "@/app/assets/Images/Logo.png";
 import { GetServerSideProps } from "next";
-import { getUserBySessionId } from "@/app/models/User";
 import { getShipBySessionId, Ship } from "@/app/models/Memberships";
 import { formatDate } from "@/app/lib/utils";
 import "@/app/globals.css";
