@@ -306,3 +306,32 @@ export async function updateUser(id: ObjectId, updateData: User) {
 export async function deleteUser(id: string) {
   return await users.deleteOne({ _id: new ObjectId(id) });
 }
+
+// export function getUserBMI(user: User): number {
+//   const { height, weight } = user;
+//   if (!height || !weight) {
+//     throw new Error("User's height and weight are required to calculate BMI.");
+//   }
+//   // BMI formula: weight (kg) / (height (m)^2)
+//   const heightInMeters = height / 100; // Convert height from cm to meters
+//   const bmi = weight / (heightInMeters * heightInMeters);
+//   return parseFloat(bmi.toFixed(2)); // Round to 2 decimal places
+// }
+
+const calculateBMI = (weight: number, height: number): number => {
+  const heightInMeters = height / 100; // Assuming height is in centimeters
+  return weight / (heightInMeters * heightInMeters);
+};
+
+export const getUserBMIBySessionId = async (sessionID: string) => {
+  const session = await sessions.findOne({ sessionID });
+  if (!session) {
+    return { err: "Session not found or expired." };
+  }
+  const user = await users.findOne({ email: session.email }) as User;
+  if (!user) {
+    return { err: "User not found." };
+  }
+  const bmi = calculateBMI(user.weight, user.height);
+  return { bmi };
+};

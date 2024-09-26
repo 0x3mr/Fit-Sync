@@ -1,8 +1,6 @@
-import { ObjectId } from "mongodb";
 import db from "../lib/manga";
 import cookie from "cookie";
 import { NextApiRequest } from "next";
-import { start } from "repl";
 import { formatDate } from "../lib/utils";
 import { ShipOptions } from '../../constants/gymPlans';
 
