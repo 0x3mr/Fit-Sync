@@ -70,10 +70,13 @@ const MultiDateCalendar: React.FC<MultiDateCalendarProps> = ({ highlightedDays =
           // Apply specific background color for highlighted day types
           ...(highlightType === 'training' && {
             backgroundColor: isToday ? '#ff9f9f82' : '#ff5a5a96', // Override today’s style
-            boxShadow: isToday ? 'inset 0 0 0 2px #00f8ff' : 'unset',
-
+            // border: isToday ? '2px solid #00f8ff' : 'unset',
+            
           }),
           // Add specific styles for today's date
+          ...(isToday && {
+            boxShadow: isToday ? 'inset 0 0 0 2px #00f8ff' : 'unset',
+          }),
           '&.Mui-selected': {
             backgroundColor: 'red',
             color: '#fff',
